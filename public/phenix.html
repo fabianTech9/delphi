@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<!-- Optional: Initialize environment based on URL parameter `token` -->
+<meta name="phenix-channel-token-uri-parameter-name" value="token" />
+<script src="https://dl.phenixrts.com/JsSDK/2022.0.latest/min/channels.js"></script>
+<body style="margin: 0">
+<video id="myVideoId" controls muted autoplay playsinline></video>
+<script>
+  const token = new URLSearchParams(location.search).get('token') || 'DIGEST:eyJhcHBsaWNhdGlvbklkIjoiZGVtbyIsImRpZ2VzdCI6IkI5Y3hYN0xnUjBBamtvSlo5Nm5xb1FQMUg3enNhc2o5RElTT2piRDZTdytaOGhHUm5VUDB1eTBWQjUzQ1lMdEpWTTA4TlZUcVlpVnZmcjk4d3M2MjJBPT0iLCJ0b2tlbiI6IntcImV4cGlyZXNcIjoxOTY0MDE5MzM3MTM1LFwidXJpXCI6XCJodHRwczovL3BjYXN0LnBoZW5peHJ0cy5jb21cIixcInJlcXVpcmVkVGFnXCI6XCJjaGFubmVsSWQ6dXMtbm9ydGhlYXN0I2RlbW8jcGhlbml4V2Vic2l0ZURlbW9cIn0ifQ=='
+  const videoElement = document.getElementById("myVideoId");
+
+  const channel = phenix.Channels.createChannel({
+    videoElement,
+    token
+  });
+
+  channel.autoMuted.subscribe(autoMuted => {
+    if (autoMuted) {
+      console.log('Playback was auto-muted by browser. Please use user action to initiate `channel.unmute()`');
+    }
+  });
+
+  channel.autoPaused.subscribe(autoPaused => {
+    if (autoPaused) {
+      console.log('Playback was auto-paused by browser. Please use user action to initiate `channel.play()`');
+    }
+  });
+
+</script>
+</body>
+</html>
