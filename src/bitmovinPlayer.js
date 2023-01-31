@@ -4,19 +4,8 @@ import {UIFactory} from "bitmovin-player/bitmovinplayer-ui";
 
 import "bitmovin-player/bitmovinplayer-ui.css";
 
-function BitmovinPlayer() {
+function BitmovinPlayer({userId, playlist}) {
   const [player, setPlayer] = useState(null);
-  const playlist = [
-    {
-      dash: "//bitdash-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd",
-      "hls:":
-        "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
-    },
-    {
-      dash: "https://bitdash-a.akamaihd.net/content/sintel/sintel.mpd",
-      hls: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-    },
-  ];
   let i = 0;
   const playerConfig = {
     key: "ac8c334b-49ef-4fae-8565-b05c648adc5f",
@@ -26,14 +15,6 @@ function BitmovinPlayer() {
     },
     analytics: {
       key: "A686277F-F815-49B3-8AFB-562BE46DEE62",
-      videoId: "video-id",
-      title: "video title",
-      userId: "fabianID",
-      customData1: "any custom data 1",
-      customData2: "any custom data 2",
-      customData3: "any custom data 3",
-      customData4: "any custom data 4",
-      customData5: "any custom data 5",
     },
   };
   const playerDiv = useRef();
@@ -57,6 +38,23 @@ function BitmovinPlayer() {
     playerInstance.subtitles.add(esSubtitle);
   };
 
+  const loadVideo = (playerInstance, video) => {
+    return playerInstance.load({
+      hls: video.hls,
+      analytics: {
+        title: video.title,
+        videoId: video.videoId,
+        cdnProvider: video.cdnProvider,
+        userId,
+        customData1: "any custom data 1",
+        customData2: "any custom data 2",
+        customData3: "any custom data 3",
+        customData4: "any custom data 4",
+        customData5: "any custom data 5",
+      }
+    });
+  }
+
   useEffect(() => {
     function setupPlayer() {
       const playerInstance = new Player(playerDiv.current, playerConfig);
@@ -71,14 +69,14 @@ function BitmovinPlayer() {
         i++;
 
         if (i < playlist.length) {
-          playerInstance.load({dash: playlist[i].dash, hls: playlist[i].hls});
+          loadVideo(playerInstance, playlist[i]);
         }
       });
 
-      playerInstance.load(playlist[0]).then(() => {
-        setPlayer(playerInstance);
+      loadVideo(playerInstance, playlist[0]).then(() => {
         addSubtitles(playerInstance);
       });
+      setPlayer(playerInstance);
     }
 
     setupPlayer();
