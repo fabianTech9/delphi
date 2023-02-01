@@ -6,6 +6,7 @@ import "bitmovin-player/bitmovinplayer-ui.css";
 
 function BitmovinPlayer({userId, playlist}) {
   const [player, setPlayer] = useState(null);
+  const [showControls, setShowControls] = useState(false);
   let i = 0;
   const playerConfig = {
     key: "ac8c334b-49ef-4fae-8565-b05c648adc5f",
@@ -18,33 +19,27 @@ function BitmovinPlayer({userId, playlist}) {
     },
   };
   const playerDiv = useRef();
+  const addSubtitles = (playerInstance, subtitles) => {
+    if (!subtitles || !subtitles.length) {
+      return;
+    }
 
-  const addSubtitles = (playerInstance) => {
-    const enSubtitle = {
-      id: "sub1",
-      lang: "en",
-      label: "English",
-      url: "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt",
-      kind: "subtitle",
-    };
-    const esSubtitle = {
-      id: "sub2",
-      lang: "es",
-      label: "Español",
-      url: "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt",
-      kind: "subtitle",
-    };
-    playerInstance.subtitles.add(enSubtitle);
-    playerInstance.subtitles.add(esSubtitle);
+    subtitles.forEach((subtitle, i) => {
+      subtitle.id = `sub${i}`;
+      subtitle.kind= "subtitle";
+
+      playerInstance.subtitles.add(subtitle);
+    });
   };
 
-  const loadVideo = (playerInstance, video) => {
-    return playerInstance.load({
-      hls: video.hls,
+  const loadVideo = async (playerInstance, video) => {
+    const {hls, title, videoId, cdnProvider} = video
+    await playerInstance.load({
+      hls,
       analytics: {
-        title: video.title,
-        videoId: video.videoId,
-        cdnProvider: video.cdnProvider,
+        title,
+        videoId,
+        cdnProvider,
         userId,
         customData1: "any custom data 1",
         customData2: "any custom data 2",
@@ -53,6 +48,7 @@ function BitmovinPlayer({userId, playlist}) {
         customData5: "any custom data 5",
       }
     });
+    addSubtitles(playerInstance, video.subtitles);
   }
 
   useEffect(() => {
@@ -93,7 +89,21 @@ function BitmovinPlayer({userId, playlist}) {
     };
   }, []);
 
-  return <div id="player" ref={playerDiv}/>;
+  const handleMouseEnter = () => {
+    setShowControls(true)
+  }
+
+  const handleMouseLeave = () => {
+    setShowControls(false)
+  }
+
+  return (
+    <div className={showControls ? 'content showControls' : 'content'}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+      <div id="player" className='player' ref={playerDiv} />
+    </div>
+  );
 }
 
 export default BitmovinPlayer;

@@ -1,15 +1,39 @@
 [
   {
-    "videoId": "COREDD8B45CD912D484A86D8F4CC13D47BDD",
-    "title": "Giant - Archival Image Slideshow",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREDD8B45CD912D484A86D8F4CC13D47BDD/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
     "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
     "title": "I'm No Angel - Farran Smith Nehme Interview",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE8875CA2EE5594463A69D1898A8BC16A2/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
+    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+    "subtitles": [
+      {
+        "lang": "en",
+        "label": "English",
+        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+      },
+      {
+        "lang": "es",
+        "label": "Español",
+        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+      }
+    ]
+  },
+  {
+    "videoId": "COREDD8B45CD912D484A86D8F4CC13D47BDD",
+    "title": "Giant - Archival Image Slideshow",
+    "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+    "subtitles": [
+      {
+        "lang": "en",
+        "label": "English",
+        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+      },
+      {
+        "lang": "es",
+        "label": "Español",
+        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+      }
+    ]
   },
   {
     "videoId": "COREEFDE872770A24F57B241F3FCEBB78B72",

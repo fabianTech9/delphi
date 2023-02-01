@@ -7,7 +7,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.content {
+  display: contents;
 }
+
+.player .bmpui-ui-hugeplaybacktogglebutton {
+  display: none;
+}
+
+.player .bmpui-ui-controlbar {
+  opacity: 0;
+}
+
+.player .bmpui-ui-playbacktogglebutton {
+  background-image: url('./images/play.png');
+}
+
+.showControls .bmpui-ui-controlbar {
+  opacity: 1;
+}
+
+.bmpui-ui-watermark {
+  display: none;
+}
+
+

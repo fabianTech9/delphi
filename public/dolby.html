@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<!-- Optional: Initialize environment based on URL parameter `token` -->
+<meta name="phenix-channel-token-uri-parameter-name" value="token" />
+
+<body style="margin: 0">
+
+  <iframe src="https://viewer.millicast.com?streamId=cY6v7F/ldkq2axf" allowfullscreen width="640" height="480"></iframe>
+  <div id="date"></div>
+  <script>
+    const id = document.querySelector('#date');
+
+    setInterval(() => {
+      id.innerHTML = new Date();
+    }, 100)
+
+  </script>
+</body>
+</html>
