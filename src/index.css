@@ -41,7 +41,7 @@ body {
   background-image: url('./images/thumbs-up.png');
   bottom: 16px;
   position: absolute;
-  right: 107px;
+  right: calc(5% + 80px);
   opacity: 0;
   transition: opacity .2s;
 }

@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Player, PlayerEvent} from "bitmovin-player";
-import {UIFactory} from "bitmovin-player/bitmovinplayer-ui";
-
-import "bitmovin-player/bitmovinplayer-ui.css";
+import {UIFactory} from 'bitmovin-player-ui';
 
 function BitmovinPlayer({userId, playlist}) {
   const [player, setPlayer] = useState(null);
