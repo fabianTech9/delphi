@@ -41,9 +41,22 @@ body {
   background-image: url('./images/thumbs-up.png');
   bottom: 16px;
   position: absolute;
-  right: calc(5% + 80px);
+  right: 80px;
   opacity: 0;
   transition: opacity .2s;
+  pointer-events: all;
+}
+
+.player-controls {
+  max-width: 900px;
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 .showControls .custom-button {

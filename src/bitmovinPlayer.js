@@ -105,14 +105,16 @@ function BitmovinPlayer({userId, playlist}) {
          onMouseLeave={handleMouseLeave}>
       <div className='player-wrapper'>
         <div id="player" className='player' ref={playerDiv}/>
-        <button aria-label="Custom button"
-                className="bmpui-ui-settingstogglebutton custom-button bmpui-off"
-                type="button"
-                aria-pressed="false"
-                onClick={handleClick}
-        >
-          <span className="bmpui-label">Custom button</span>
-        </button>
+        <div className="player-controls">
+          <button aria-label="Custom button"
+                  className="bmpui-ui-settingstogglebutton custom-button bmpui-off"
+                  type="button"
+                  aria-pressed="false"
+                  onClick={handleClick}
+          >
+            <span className="bmpui-label">Custom button</span>
+          </button>
+        </div>
       </div>
     </div>
   );
