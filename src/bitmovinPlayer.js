@@ -26,7 +26,7 @@ function BitmovinPlayer({userId, playlist}) {
 
     subtitles.forEach((subtitle, i) => {
       subtitle.id = `sub${i}`;
-      subtitle.kind= "subtitle";
+      subtitle.kind = "subtitle";
 
       playerInstance.subtitles.add(subtitle);
     });
@@ -97,11 +97,25 @@ function BitmovinPlayer({userId, playlist}) {
     setShowControls(false)
   }
 
+  const handleClick = () => {
+    alert('custom button')
+  }
+
   return (
     <div className={showControls ? 'content showControls' : 'content'}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
-      <div id="player" className='player' ref={playerDiv} />
+         onMouseEnter={handleMouseEnter}
+         onMouseLeave={handleMouseLeave}>
+      <div className='player-wrapper'>
+        <div id="player" className='player' ref={playerDiv}/>
+        <button aria-label="Custom button"
+                className="bmpui-ui-settingstogglebutton custom-button bmpui-off"
+                type="button"
+                aria-pressed="false"
+                onClick={handleClick}
+        >
+          <span className="bmpui-label">Custom button</span>
+        </button>
+      </div>
     </div>
   );
 }
