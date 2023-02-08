@@ -1,0 +1,32 @@
+.playerWrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.playerControls {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.customButton {
+  background-image: url('/images/thumbs-up.png');
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  bottom: 16px;
+  position: absolute;
+  right: 80px;
+  width: 32px;
+  height: 32px;
+  transition: opacity .2s;
+  pointer-events: all;
+  cursor: pointer;
+}

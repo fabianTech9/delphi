@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background: black;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+
+main {
+  width: 100vw;
+}
+
+.player {
+  .bmpui-ui-controlbar {
+    opacity: 0;
+  }
+
+  .bmpui-ui-volumetogglebutton {
+    background-color: rgb(3 199 3 / 75%);
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+}
+
+.playerControls {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.showControls {
+  .bmpui-ui-controlbar, .playerControls {
+    opacity: 1;
+  }
+}
+
+.bmpui-ui-hugeplaybacktogglebutton {
+  opacity: 0;
+}

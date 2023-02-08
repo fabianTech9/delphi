@@ -1,20 +1,35 @@
-# Getting Started with Create React App
+# Delphi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Technologies](https://skillicons.dev/icons?i=react,ts,nextjs,graphql,html,css)](https://skillicons.dev)
 
-Before running the project, you can run
+Application that allows users search by the past launches using the [SpaceX api](https://api.spacex.land/graphql/)
+This is a [Next.js](https://nextjs.org/) project bootstrapped
+with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### `npm install`
+# Quick Start
 
-## Available Scripts
+This application runs on Node v16.18.0.
 
-In the project directory, you can run:
+Install the node modules
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the development server:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm run dev
+```
 
+Open [http://localhost:50000](http://localhost:50000) with your browser to see the result.
+
+# Production Mode
+
+Install the node modules and run the production server:
+
+```bash
+npm run start
+```
+
+Navigate to [http://localhost:50000](http://localhost:50000) with your browser to see the result.
