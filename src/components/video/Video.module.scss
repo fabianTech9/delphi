@@ -7,7 +7,7 @@
 .playerControls {
   width: 100%;
   margin: auto;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 100px;
   left: 0;
@@ -22,7 +22,7 @@
   background-color: transparent;
   border: none;
   bottom: 16px;
-  position: absolute;
+  position: fixed;
   right: 80px;
   width: 32px;
   height: 32px;
