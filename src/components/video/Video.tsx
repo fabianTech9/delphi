@@ -8,8 +8,6 @@ import styles from './Video.module.scss';
 import 'bitmovin-player/bitmovinplayer-ui.css';
 
 function Video({ config, playlist }: any): JSX.Element {
-  // eslint-disable-next-line no-console
-  console.log(config, playlist);
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
