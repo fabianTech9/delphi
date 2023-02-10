@@ -3,6 +3,8 @@ import { Player, PlayerEvent } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
 
+import Action from '@components/action/Action';
+
 import styles from './Video.module.scss';
 
 import 'bitmovin-player/bitmovinplayer-ui.css';
@@ -11,6 +13,7 @@ function Video({ config, playlist }: any): JSX.Element {
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
+  const [currentAction, setCurrentAction] = useState(null);
   let i = 0;
 
   const { userId } = config;
@@ -73,6 +76,25 @@ function Video({ config, playlist }: any): JSX.Element {
         }
       });
 
+      setInterval(() => {
+        const { actions } = playlist[i];
+        const currentTime = playerInstance.getCurrentTime();
+
+        if (actions) {
+          let newCurrentAction;
+          actions.forEach((action) => {
+            if (
+              currentTime >= action.startTime &&
+              currentTime < action.endTime
+            ) {
+              newCurrentAction = action;
+            }
+          });
+
+          setCurrentAction(newCurrentAction);
+        }
+      }, 500);
+
       loadVideo(playerInstance, playlist[0]).then(() => {
         addSubtitles(playerInstance, playlist[0].subtitles);
       });
@@ -114,6 +136,7 @@ function Video({ config, playlist }: any): JSX.Element {
       onMouseLeave={handleMouseLeave}
     >
       <div className="player" ref={playerDiv} />
+      {currentAction && <Action {...currentAction} />}
       <div className="playerControls">
         <button
           aria-label="Custom button"

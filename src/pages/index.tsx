@@ -12,6 +12,10 @@ const Main: NextPage = ({ data }: SlugProps): JSX.Element => (
     <Head>
       <title>Delphi</title>
       <meta content="Delphi" name="description" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600"
+        rel="stylesheet"
+      />
     </Head>
     <main>
       <Home data={data} />

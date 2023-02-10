@@ -15,6 +15,30 @@
         "label": "Español",
         "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
       }
+    ],
+    "actions": [
+      {
+        "type": "textBanner",
+        "startTime": 3,
+        "endTime": 10,
+        "image": "/images/pepsi.jpeg",
+        "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
+        "url": "https://www.pepsi.com/",
+        "borderColor": "#0065c3",
+        "backgroundColor": "#0065c3a6",
+        "textColor": "#fff"
+      },
+      {
+        "type": "textBanner",
+        "startTime": 15,
+        "endTime": 23,
+        "image": "/images/pepsi2.png",
+        "text": "<p><b>Pepsi</b> zero sugar</p><p>Delivers the love</p>",
+        "url": "https://www.pepsi.com/",
+        "borderColor": "#000",
+        "backgroundColor": "#000000a6",
+        "textColor": "#fff"
+      }
     ]
   },
   {

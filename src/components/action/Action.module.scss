@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+  margin: auto;
+  border: 1px solid var(--action-border-color);
+  background: var(--action-background-color);
+  max-width: 600px;
+  align-items: center;
+  width: calc(100% - 40px);
+  text-decoration: none;
+}
+
+.imageContainer {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.text {
+  font-family: 'Kanit', sans-serif;
+  color: var(--action-text-color, #fff);
+  font-size: 20px;
+  line-height: 28px;
+  text-decoration: none;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
