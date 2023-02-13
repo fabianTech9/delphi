@@ -9,6 +9,7 @@ function Action({
   borderColor,
   backgroundColor,
   textColor,
+  type,
 }: any): JSX.Element {
   const style = {
     '--action-border-color': borderColor,
@@ -17,20 +18,30 @@ function Action({
   };
 
   return (
-    <a
+    <div
       className={styles.container}
-      href={url}
-      rel="noreferrer"
       // @ts-ignore
       style={style}
       target="_blank"
     >
-      <figure className={styles.imageContainer}>
-        <img alt={text} src={image} />
-      </figure>
-
-      <div className={styles.text} dangerouslySetInnerHTML={{ __html: text }} />
-    </a>
+      {type === 'fullwidth' ? (
+        <img
+          alt="delphi"
+          className={styles.watermark}
+          src="https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
+        />
+      ) : (
+        <>
+          <figure className={styles.imageContainer}>
+            <img alt={text} src={image} />
+          </figure>
+          <div
+            className={styles.text}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        </>
+      )}
+    </div>
   );
 }
 

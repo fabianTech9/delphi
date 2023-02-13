@@ -18,12 +18,21 @@
     ],
     "actions": [
       {
-        "type": "textBanner",
+        "type": "fullwidth",
         "startTime": 3,
         "endTime": 10,
+        "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6",
+        "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
+        "borderColor": "transparent",
+        "backgroundColor": "transparent",
+        "textColor": "#fff"
+      },
+      {
+        "type": "textBanner",
+        "startTime": 25,
+        "endTime": 30,
         "image": "/images/pepsi.jpeg",
         "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
-        "url": "https://www.pepsi.com/",
         "borderColor": "#0065c3",
         "backgroundColor": "#0065c3a6",
         "textColor": "#fff"
