@@ -147,6 +147,7 @@ function Video({ config, playlist }: any): JSX.Element {
         />
       </div>
       <img
+        alt="delphi"
         className={styles.watermark}
         src="https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
       />
