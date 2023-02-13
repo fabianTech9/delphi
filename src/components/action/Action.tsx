@@ -5,7 +5,6 @@ import styles from './Action.module.scss';
 function Action({
   image,
   text,
-  url,
   borderColor,
   backgroundColor,
   textColor,
