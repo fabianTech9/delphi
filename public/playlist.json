@@ -22,7 +22,7 @@
         "type": "quiz",
         "startTime": 3,
         "endTime": 10,
-        "background": "./images/win.jpg",
+        "background": "/images/win.jpg",
         "question": "<p>Do you like the <b>quiz</b></p>",
         "countdown": "15",
         "answers": [

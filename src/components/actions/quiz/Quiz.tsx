@@ -11,7 +11,7 @@ function Actions({
   countdown,
 }: any): JSX.Element {
   const style = {
-    '--action-background-image': `url(${background})`,
+    '--action-background-image': `url("${background}")`,
   };
 
   const handleClick = (label): void => {
