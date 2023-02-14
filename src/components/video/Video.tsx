@@ -3,7 +3,7 @@ import { Player, PlayerEvent } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
 
-import Action from '@components/action/Action';
+import PlayerAction from '@components/playerAction/PlayerAction';
 
 import styles from './Video.module.scss';
 
@@ -13,7 +13,7 @@ function Video({ config, playlist }: any): JSX.Element {
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
-  const [currentAction, setCurrentAction] = useState(null);
+  const [currentActions, setCurrentActions] = useState([]);
   let i = 0;
 
   const { userId } = config;
@@ -81,17 +81,18 @@ function Video({ config, playlist }: any): JSX.Element {
         const currentTime = playerInstance.getCurrentTime();
 
         if (actions) {
-          let newCurrentAction;
+          const newCurrentAction = [];
+
           actions.forEach((action) => {
             if (
               currentTime >= action.startTime &&
               currentTime < action.endTime
             ) {
-              newCurrentAction = action;
+              newCurrentAction.push(action);
             }
           });
 
-          setCurrentAction(newCurrentAction);
+          setCurrentActions(newCurrentAction);
         }
       }, 500);
 
@@ -136,7 +137,9 @@ function Video({ config, playlist }: any): JSX.Element {
       onMouseLeave={handleMouseLeave}
     >
       <div className="player" ref={playerDiv} />
-      {currentAction && <Action {...currentAction} />}
+      {currentActions.map((action) => (
+        <PlayerAction {...action} key={action.id} />
+      ))}
       <div className="playerControls">
         <button
           aria-label="Custom button"

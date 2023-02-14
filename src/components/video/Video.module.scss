@@ -22,11 +22,12 @@
   background-color: transparent;
   border: none;
   bottom: 16px;
-  position: fixed;
+  position: absolute;
   right: 80px;
   width: 32px;
   height: 32px;
   transition: opacity .2s;
   pointer-events: all;
   cursor: pointer;
+  z-index: 1;
 }

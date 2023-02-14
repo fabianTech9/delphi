@@ -18,16 +18,42 @@
     ],
     "actions": [
       {
-        "type": "fullwidth",
+        "id": "bb2d30a4-3014-42f3-b3f6-4593eb86beca",
+        "type": "quiz",
         "startTime": 3,
         "endTime": 10,
-        "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6",
-        "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
-        "borderColor": "transparent",
+        "background": "./images/win.jpg",
+        "question": "<p>Do you like the <b>quiz</b></p>",
+        "countdown": "15",
+        "answers": [
+          {
+            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bece",
+            "label": "Yes, I love it",
+            "style": "round-number"
+          },
+          {
+            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebb",
+            "label": "Sure, It's cool",
+            "style": "round-number"
+          },
+          {
+            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebb",
+            "label": "Not, I hate it",
+            "style": "round-number"
+          }
+        ],
         "backgroundColor": "transparent",
         "textColor": "#fff"
       },
       {
+        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef1",
+        "type": "overlay",
+        "startTime": 3,
+        "endTime": 10,
+        "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
+      },
+      {
+        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef2",
         "type": "textBanner",
         "startTime": 25,
         "endTime": 30,
@@ -38,6 +64,7 @@
         "textColor": "#fff"
       },
       {
+        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef3",
         "type": "textBanner",
         "startTime": 15,
         "endTime": 23,
