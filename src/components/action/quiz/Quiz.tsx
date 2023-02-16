@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Countdown from '@components/actions/Countdown/Countdown';
+import Countdown from '@components/action/Countdown/Countdown';
 
 import styles from './Quiz.module.scss';
 
@@ -25,7 +25,10 @@ function Actions({
       style={style}
     >
       <div className={styles.questionContainer}>
-        <h2 dangerouslySetInnerHTML={{ __html: question }} />
+        <h2
+          className={styles.question}
+          dangerouslySetInnerHTML={{ __html: question }}
+        />
         <div className={styles.countdown}>
           <Countdown countdown={countdown} />
         </div>

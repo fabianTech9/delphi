@@ -1,22 +1,40 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-import Quiz from '@components/actions/quiz/Quiz';
+import Action from '@components/action/Action';
+
+import { VideoContext } from '../../context/video/VideoContext';
 
 import styles from './Actions.module.scss';
 
-function Actions({ playlist }: any): JSX.Element {
-  let content = null;
+function Actions(): JSX.Element {
+  const { currentTime, currentVideo } = useContext(VideoContext);
+  const [currentActions, setCurrentActions] = useState([]);
 
-  const action = playlist[0].actions[0];
+  useEffect(() => {
+    if (currentVideo) {
+      const { actions } = currentVideo;
 
-  switch (action.type) {
-    case 'quiz': {
-      content = <Quiz {...action} />;
-      break;
+      if (actions) {
+        const newCurrentAction = [];
+
+        actions.forEach((action) => {
+          if (currentTime >= action.startTime && currentTime < action.endTime) {
+            newCurrentAction.push(action);
+          }
+        });
+
+        setCurrentActions(newCurrentAction);
+      }
     }
-  }
+  }, [currentTime, currentVideo]);
 
-  return <div className={styles.container}>{content}</div>;
+  return (
+    <div className={styles.container}>
+      {currentActions.map((action) => (
+        <Action action={action} key={action.id} />
+      ))}
+    </div>
+  );
 }
 
 export default Actions;

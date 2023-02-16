@@ -1,19 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Player, PlayerEvent } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
 
 import PlayerAction from '@components/playerAction/PlayerAction';
 
+import { VideoContext } from '../../context/video/VideoContext';
+
 import styles from './Video.module.scss';
 
 import 'bitmovin-player/bitmovinplayer-ui.css';
 
 function Video({ config, playlist }: any): JSX.Element {
+  const { setCurrentTime, setCurrentVideo } = useContext(VideoContext);
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
   const [currentActions, setCurrentActions] = useState([]);
+
   let i = 0;
 
   const { userId } = config;
@@ -72,6 +76,7 @@ function Video({ config, playlist }: any): JSX.Element {
         i += 1;
 
         if (i < playlist.length) {
+          setCurrentVideo(playlist[i]);
           loadVideo(playerInstance, playlist[i]);
         }
       });
@@ -79,6 +84,8 @@ function Video({ config, playlist }: any): JSX.Element {
       setInterval(() => {
         const { actions } = playlist[i];
         const currentTime = playerInstance.getCurrentTime();
+
+        setCurrentTime(currentTime);
 
         if (actions) {
           const newCurrentAction = [];
@@ -97,6 +104,7 @@ function Video({ config, playlist }: any): JSX.Element {
       }, 500);
 
       loadVideo(playerInstance, playlist[0]).then(() => {
+        setCurrentVideo(playlist[0]);
         addSubtitles(playerInstance, playlist[0].subtitles);
       });
       setPlayer(playerInstance);

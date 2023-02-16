@@ -28,6 +28,10 @@
   position: relative;
 }
 
+.question {
+  padding-right: 120px;
+}
+
 .countdown {
   position: absolute;
   right: 20px;
@@ -36,6 +40,7 @@
 
 .answers {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .answer {
