@@ -16,6 +16,7 @@ const Main: NextPage = ({ data }: SlugProps): JSX.Element => (
         href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600"
         rel="stylesheet"
       />
+      <script src="https://dl.phenixrts.com/JsSDK/2022.0.latest/min/channels.js" />
     </Head>
     <main>
       <Home data={data} />

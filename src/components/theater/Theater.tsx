@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
+import { Player as LottiePlayer } from '@lottiefiles/react-lottie-player';
 
 import Actions from '@components/actions/Actions';
+import Player from '@components/player/Player';
 import Video from '@components/video/Video';
 
 import styles from './Theater.module.scss';
 
-function Theater({ config, playlist }: any): JSX.Element {
+function Theater({ config, playlist, player }: any): JSX.Element {
   const [hasLoaded, setHasLoaded] = useState(null);
 
+  const isPhenix = player === 'phenix';
+  const playerElement = isPhenix ? (
+    <Player />
+  ) : (
+    <Video config={config} playlist={playlist} />
+  );
   const content = (
     <>
-      <div className={styles.videoContainer}>
-        <Video config={config} playlist={playlist} />
-      </div>
+      <div className={styles.videoContainer}>{playerElement}</div>
       <Actions />
     </>
   );
@@ -39,7 +44,7 @@ function Theater({ config, playlist }: any): JSX.Element {
               </button>
             </div>
           </div>
-          <Player
+          <LottiePlayer
             autoplay
             loop
             src="https://assets8.lottiefiles.com/temporary_files/jzVfLn.json"

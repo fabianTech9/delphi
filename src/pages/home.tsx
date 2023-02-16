@@ -25,6 +25,7 @@ export async function getServerSideProps({
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const configUrl = (query?.config as string) ?? `${baseUrl}/config.json`;
   const playListUrl = (query?.media as string) ?? `${baseUrl}/playlist.json`;
+  const player = (query?.player as string) ?? 'bitmovin';
 
   const config = await getJSONFile(configUrl);
   const playlist = await getJSONFile(playListUrl);
@@ -36,6 +37,7 @@ export async function getServerSideProps({
       data: {
         config,
         playlist,
+        player,
       },
     },
   };

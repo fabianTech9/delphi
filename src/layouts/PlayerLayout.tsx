@@ -11,7 +11,13 @@ function PlayerLayout({ data }: any): JSX.Element {
     return null;
   }
 
-  return <Theater config={data.config} playlist={data.playlist} />;
+  return (
+    <Theater
+      config={data.config}
+      player={data.player}
+      playlist={data.playlist}
+    />
+  );
 }
 
 export default PlayerLayout;
