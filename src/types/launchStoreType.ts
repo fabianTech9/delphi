@@ -1,5 +1,6 @@
 export interface LaunchStoreType {
-  playlist: any;
+  program: any;
   config: any;
   player: any;
+  token: string;
 }

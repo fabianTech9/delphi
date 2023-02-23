@@ -1,182 +1,186 @@
-[
-  {
-    "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
-    "title": "I'm No Angel - Farran Smith Nehme Interview",
-    "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
-    "subtitles": [
-      {
-        "lang": "en",
-        "label": "English",
-        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
-      },
-      {
-        "lang": "es",
-        "label": "Español",
-        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
-      }
-    ],
-    "actions": [
-      {
-        "id": "bb2d30a4-3014-42f3-b3f6-4593eb86beca",
-        "type": "quiz",
-        "startTime": 3,
-        "endTime": 13,
-        "background": "/images/win.jpg",
-        "question": "<p>Do you like the <b>quiz</b>?</p>",
-        "countdown": 10,
-        "answers": [
-          {
-            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bece",
-            "label": "Yes, I love it",
-            "style": "round-number"
-          },
-          {
-            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebb",
-            "label": "Sure, It's cool",
-            "style": "round-number"
-          },
-          {
-            "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebc",
-            "label": "Not, I hate it",
-            "style": "round-number"
-          }
-        ],
-        "backgroundColor": "transparent",
-        "textColor": "#fff"
-      },
-      {
-        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef1",
-        "type": "overlay",
-        "startTime": 3,
-        "endTime": 10,
-        "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
-      },
-      {
-        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef2",
-        "type": "textBanner",
-        "startTime": 25,
-        "endTime": 30,
-        "image": "/images/pepsi.jpeg",
-        "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
-        "borderColor": "#0065c3",
-        "backgroundColor": "#0065c3a6",
-        "textColor": "#fff"
-      },
-      {
-        "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef3",
-        "type": "textBanner",
-        "startTime": 15,
-        "endTime": 23,
-        "image": "/images/pepsi2.png",
-        "text": "<p><b>Pepsi</b> zero sugar</p><p>Delivers the love</p>",
-        "url": "https://www.pepsi.com/",
-        "borderColor": "#000",
-        "backgroundColor": "#000000a6",
-        "textColor": "#fff"
-      }
-    ]
-  },
-  {
-    "videoId": "COREDD8B45CD912D484A86D8F4CC13D47BDD",
-    "title": "Giant - Archival Image Slideshow",
-    "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
-    "subtitles": [
-      {
-        "lang": "en",
-        "label": "English",
-        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
-      },
-      {
-        "lang": "es",
-        "label": "Español",
-        "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
-      }
-    ]
-  },
-  {
-    "videoId": "COREEFDE872770A24F57B241F3FCEBB78B72",
-    "title": "I'm No Angel - Cassandra Moore Interview",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREEFDE872770A24F57B241F3FCEBB78B72/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "COREFBB68F76B3FB4A2DA5AFE682F9EE26FD",
-    "title": "Kummatty Slideshow",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREFBB68F76B3FB4A2DA5AFE682F9EE26FD/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE0D96C68A1B4E474B9DF5E091508FA905",
-    "title": "The Film Foundation Introduction",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE0D96C68A1B4E474B9DF5E091508FA905/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE775AFC44D0E54BB28A25282C2C4C0FFA",
-    "title": "Kummatty Before and After Reel",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE775AFC44D0E54BB28A25282C2C4C0FFA/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE050401C9BEE54FEB8F04CB5274A0EEBB",
-    "title": "Material World Foundation Trailer",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE050401C9BEE54FEB8F04CB5274A0EEBB/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "COREB23AE6F3D66F484AB216C1B7555E380B",
-    "title": "La Strada - Kris Kristofferson Documentary",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREB23AE6F3D66F484AB216C1B7555E380B/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE1F030DF759814BA2B7A46A3D3B2F090D",
-    "title": "FESPACO Trailer",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE1F030DF759814BA2B7A46A3D3B2F090D/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE69C64F4AA25648E795D690EE4BB6AA72",
-    "title": "Moulin Rouge - Restoration Before and After",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE69C64F4AA25648E795D690EE4BB6AA72/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "COREEFE84C1384D54090B400D180FC8D808D",
-    "title": "I Know Where I'm Going! - Before and After Documentary",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREB6628657A2A8437D8D4317B40475269C/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE03C968E9319745C59550B6002DD35503",
-    "title": "One-Eyed Jacks - Martin Scorsese Introduction",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE03C968E9319745C59550B6002DD35503/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORECBCDF92E89A643C6967F9CBF3A87382E",
-    "title": "Sambizanga - Martin Scorsese Introduction",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORECBCDF92E89A643C6967F9CBF3A87382E/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE0DC2FCBAD68A47748C3CD42BB5F96DD2",
-    "title": "I Know Where I'm Going! - Martin Scorsese Introduction",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREABEAE4A6632E4BA9A59B5DB876FE2086/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "COREC748D659D322422CB8BF73FB4441DC67",
-    "title": "La Strada - Martin Scorsese Introduction",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/COREC748D659D322422CB8BF73FB4441DC67/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  },
-  {
-    "videoId": "CORE40AED774A5AD44BB893C52EC7026998B",
-    "title": "May Hong HaDuong Introduces the Chase",
-    "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE40AED774A5AD44BB893C52EC7026998B/manifest.m3u8",
-    "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
-  }
-]
+{
+  "programId": "123456",
+  "channelId": "us-northeast#my-application-id#my-channel.1345",
+  "segments": [
+    {
+      "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
+      "title": "I'm No Angel - Farran Smith Nehme Interview",
+      "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+      "subtitles": [
+        {
+          "lang": "en",
+          "label": "English",
+          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+        },
+        {
+          "lang": "es",
+          "label": "Español",
+          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+        }
+      ],
+      "actions": [
+        {
+          "id": "bb2d30a4-3014-42f3-b3f6-4593eb86beca",
+          "type": "quiz",
+          "startTime": 3,
+          "endTime": 13,
+          "background": "/images/win.jpg",
+          "question": "<p>Do you like the <b>quiz</b>?</p>",
+          "countdown": 10,
+          "answers": [
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bece",
+              "label": "Yes, I love it",
+              "style": "round-number"
+            },
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebb",
+              "label": "Sure, It's cool",
+              "style": "round-number"
+            },
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebc",
+              "label": "Not, I hate it",
+              "style": "round-number"
+            }
+          ],
+          "backgroundColor": "transparent",
+          "textColor": "#fff"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef1",
+          "type": "overlay",
+          "startTime": 3,
+          "endTime": 10,
+          "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef2",
+          "type": "textBanner",
+          "startTime": 25,
+          "endTime": 30,
+          "image": "/images/pepsi.jpeg",
+          "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
+          "borderColor": "#0065c3",
+          "backgroundColor": "#0065c3a6",
+          "textColor": "#fff"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef3",
+          "type": "textBanner",
+          "startTime": 15,
+          "endTime": 23,
+          "image": "/images/pepsi2.png",
+          "text": "<p><b>Pepsi</b> zero sugar</p><p>Delivers the love</p>",
+          "url": "https://www.pepsi.com/",
+          "borderColor": "#000",
+          "backgroundColor": "#000000a6",
+          "textColor": "#fff"
+        }
+      ]
+    },
+    {
+      "videoId": "COREDD8B45CD912D484A86D8F4CC13D47BDD",
+      "title": "Giant - Archival Image Slideshow",
+      "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+      "subtitles": [
+        {
+          "lang": "en",
+          "label": "English",
+          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+        },
+        {
+          "lang": "es",
+          "label": "Español",
+          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+        }
+      ]
+    },
+    {
+      "videoId": "COREEFDE872770A24F57B241F3FCEBB78B72",
+      "title": "I'm No Angel - Cassandra Moore Interview",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREEFDE872770A24F57B241F3FCEBB78B72/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "COREFBB68F76B3FB4A2DA5AFE682F9EE26FD",
+      "title": "Kummatty Slideshow",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREFBB68F76B3FB4A2DA5AFE682F9EE26FD/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE0D96C68A1B4E474B9DF5E091508FA905",
+      "title": "The Film Foundation Introduction",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE0D96C68A1B4E474B9DF5E091508FA905/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE775AFC44D0E54BB28A25282C2C4C0FFA",
+      "title": "Kummatty Before and After Reel",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE775AFC44D0E54BB28A25282C2C4C0FFA/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE050401C9BEE54FEB8F04CB5274A0EEBB",
+      "title": "Material World Foundation Trailer",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE050401C9BEE54FEB8F04CB5274A0EEBB/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "COREB23AE6F3D66F484AB216C1B7555E380B",
+      "title": "La Strada - Kris Kristofferson Documentary",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREB23AE6F3D66F484AB216C1B7555E380B/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE1F030DF759814BA2B7A46A3D3B2F090D",
+      "title": "FESPACO Trailer",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE1F030DF759814BA2B7A46A3D3B2F090D/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE69C64F4AA25648E795D690EE4BB6AA72",
+      "title": "Moulin Rouge - Restoration Before and After",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE69C64F4AA25648E795D690EE4BB6AA72/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "COREEFE84C1384D54090B400D180FC8D808D",
+      "title": "I Know Where I'm Going! - Before and After Documentary",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREB6628657A2A8437D8D4317B40475269C/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE03C968E9319745C59550B6002DD35503",
+      "title": "One-Eyed Jacks - Martin Scorsese Introduction",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE03C968E9319745C59550B6002DD35503/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORECBCDF92E89A643C6967F9CBF3A87382E",
+      "title": "Sambizanga - Martin Scorsese Introduction",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORECBCDF92E89A643C6967F9CBF3A87382E/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE0DC2FCBAD68A47748C3CD42BB5F96DD2",
+      "title": "I Know Where I'm Going! - Martin Scorsese Introduction",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREABEAE4A6632E4BA9A59B5DB876FE2086/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "COREC748D659D322422CB8BF73FB4441DC67",
+      "title": "La Strada - Martin Scorsese Introduction",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/COREC748D659D322422CB8BF73FB4441DC67/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    },
+    {
+      "videoId": "CORE40AED774A5AD44BB893C52EC7026998B",
+      "title": "May Hong HaDuong Introduces the Chase",
+      "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE40AED774A5AD44BB893C52EC7026998B/manifest.m3u8",
+      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+    }
+  ]
+}

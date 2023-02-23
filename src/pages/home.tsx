@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { SlugProps } from 'types/slugProps';
 
 import getJSONFile from '../api/file/file';
+import getToken from '../helper/token';
 
 const PlayerLayout = dynamic(() => import('@layouts/PlayerLayout'));
 
@@ -28,7 +29,8 @@ export async function getServerSideProps({
   const player = (query?.player as string) ?? 'bitmovin';
 
   const config = await getJSONFile(configUrl);
-  const playlist = await getJSONFile(playListUrl);
+  const program = await getJSONFile(playListUrl);
+  const token = getToken(config, program);
 
   return {
     props: {
@@ -36,8 +38,9 @@ export async function getServerSideProps({
       messages: (await import(`/messages/${locale}.json`)).default,
       data: {
         config,
-        playlist,
+        program,
         player,
+        token,
       },
     },
   };

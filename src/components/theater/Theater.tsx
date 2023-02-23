@@ -7,9 +7,10 @@ import Video from '@components/video/Video';
 
 import styles from './Theater.module.scss';
 
-function Theater({ config, playlist, player }: any): JSX.Element {
+function Theater({ config, program, player }: any): JSX.Element {
   const [hasLoaded, setHasLoaded] = useState(null);
 
+  const playlist = { program };
   const isPhenix = player === 'phenix';
   const playerElement = isPhenix ? (
     <Player />
