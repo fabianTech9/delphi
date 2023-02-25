@@ -3,14 +3,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import Action from '@components/action/Action';
 
 import { VideoContext } from '../../context/video/VideoContext';
+import { VideoStateContext } from '../../context/videoState/VideoContext';
 
 import styles from './Actions.module.scss';
 
 function Actions(): JSX.Element {
-  const { currentTime, currentVideo } = useContext(VideoContext);
+  const { currentVideo } = useContext(VideoContext);
+  const { currentTime } = useContext(VideoStateContext);
   const [currentActions, setCurrentActions] = useState([]);
 
   useEffect(() => {
+    console.log(currentTime, currentVideo);
     if (currentVideo) {
       const { actions } = currentVideo;
 

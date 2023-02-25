@@ -8,13 +8,16 @@ export default function VideoStateContextProvider({
   children,
 }: any): JSX.Element {
   const [videoState, setVideoState] = useState(null);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const context = useMemo(
     () => ({
       videoState,
       setVideoState,
+      currentTime,
+      setCurrentTime,
     }),
-    [videoState]
+    [videoState, currentTime]
   );
 
   return (

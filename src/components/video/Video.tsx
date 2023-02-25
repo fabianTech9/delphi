@@ -14,7 +14,7 @@ import 'bitmovin-player/bitmovinplayer-ui.css';
 
 function Video({ playlist }: any): JSX.Element {
   const { setCurrentVideo, config } = useContext(VideoContext);
-  const { setVideoState } = useContext(VideoStateContext);
+  const { setVideoState, setCurrentTime } = useContext(VideoStateContext);
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
@@ -100,6 +100,8 @@ function Video({ playlist }: any): JSX.Element {
       setInterval(() => {
         const { actions } = playlist[i];
         const currentTime = playerInstance.getCurrentTime();
+
+        setCurrentTime(currentTime);
 
         if (actions) {
           const newCurrentAction = [];
