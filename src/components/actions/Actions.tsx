@@ -13,7 +13,6 @@ function Actions(): JSX.Element {
   const [currentActions, setCurrentActions] = useState([]);
 
   useEffect(() => {
-    console.log(currentTime, currentVideo);
     if (currentVideo) {
       const { actions } = currentVideo;
 
