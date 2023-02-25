@@ -22,7 +22,12 @@ main {
 }
 
 .player {
+  .bmpui-ui-playbacktoggle-overlay {
+    display: none;
+  }
+
   .bmpui-ui-controlbar {
+    display: none;
     position: absolute;
     opacity: 0;
     z-index: 1;

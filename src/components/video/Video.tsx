@@ -6,13 +6,15 @@ import cn from 'classname';
 import PlayerAction from '@components/playerAction/PlayerAction';
 
 import { VideoContext } from '../../context/video/VideoContext';
+import { VideoStateContext } from '../../context/videoState/VideoContext';
 
 import styles from './Video.module.scss';
 
 import 'bitmovin-player/bitmovinplayer-ui.css';
 
-function Video({ config, playlist }: any): JSX.Element {
-  const { setCurrentTime, setCurrentVideo } = useContext(VideoContext);
+function Video({ playlist }: any): JSX.Element {
+  const { setCurrentVideo, config } = useContext(VideoContext);
+  const { setVideoState } = useContext(VideoStateContext);
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
@@ -24,10 +26,6 @@ function Video({ config, playlist }: any): JSX.Element {
   const playerConfig = {
     ...config,
     ui: false,
-
-    playback: {
-      autoplay: true,
-    },
   };
 
   const addSubtitles = (playerInstance, subtitles): void => {
@@ -72,20 +70,36 @@ function Video({ config, playlist }: any): JSX.Element {
           playerInstance.play();
         }
       });
+      playerInstance.on(PlayerEvent.Paused, () => {
+        setVideoState({
+          state: 'Paused',
+          time: playerInstance.getCurrentTime(),
+        });
+      });
+      playerInstance.on(PlayerEvent.Playing, () => {
+        setVideoState({
+          state: 'Playing',
+          time: playerInstance.getCurrentTime(),
+        });
+      });
+      playerInstance.on(PlayerEvent.Seeked, () => {
+        setVideoState({
+          state: 'Seek',
+          time: playerInstance.getCurrentTime(),
+        });
+      });
       playerInstance.on(PlayerEvent.PlaybackFinished, () => {
         i += 1;
 
         if (i < playlist.length) {
           setCurrentVideo(playlist[i]);
-          loadVideo(playerInstance, playlist[i]);
+          loadVideo(playerInstance, playlist[i].angles[0]);
         }
       });
 
       setInterval(() => {
         const { actions } = playlist[i];
         const currentTime = playerInstance.getCurrentTime();
-
-        setCurrentTime(currentTime);
 
         if (actions) {
           const newCurrentAction = [];
@@ -103,7 +117,7 @@ function Video({ config, playlist }: any): JSX.Element {
         }
       }, 500);
 
-      loadVideo(playerInstance, playlist[0]).then(() => {
+      loadVideo(playerInstance, playlist[0].angles[0]).then(() => {
         setCurrentVideo(playlist[0]);
         addSubtitles(playerInstance, playlist[0].subtitles);
       });

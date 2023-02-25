@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { NextIntlProvider } from 'next-intl';
 
 import VideoContextProvider from '../context/video/VideoContext';
+import VideoStateContextProvider from '../context/videoState/VideoContext';
 
 import '../styles/global.scss';
 
@@ -11,7 +12,9 @@ function MyApp({ Component, pageProps }: AppProps<{ messages }>): JSX.Element {
   return (
     <NextIntlProvider messages={pageProps.messages}>
       <VideoContextProvider>
-        <Component {...pageProps} />
+        <VideoStateContextProvider>
+          <Component {...pageProps} />
+        </VideoStateContextProvider>
       </VideoContextProvider>
     </NextIntlProvider>
   );

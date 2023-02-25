@@ -8,9 +8,12 @@ export default function VideoContextProvider({ children }: any): JSX.Element {
   const [currentTime, setCurrentTime] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [token, setToken] = useState('');
+  const [config, setConfig] = useState(null);
 
   const context = useMemo(
     () => ({
+      config,
+      setConfig,
       token,
       setToken,
       currentTime,
@@ -18,7 +21,7 @@ export default function VideoContextProvider({ children }: any): JSX.Element {
       currentVideo,
       setCurrentVideo,
     }),
-    [currentTime, currentVideo, token]
+    [currentTime, currentVideo, token, config]
   );
 
   return (

@@ -1,4 +1,7 @@
 const initialContext = {
+  config: null,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setConfig: (value) => {},
   token: '',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setToken: (value) => {},

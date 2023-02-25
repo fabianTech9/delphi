@@ -9,19 +9,18 @@ const Theater = dynamic(() => import('@components/theater/Theater'), {
 });
 
 function PlayerLayout({ data }: any): JSX.Element {
-  const { setToken } = useContext(VideoContext);
+  const { setToken, setConfig } = useContext(VideoContext);
 
   useEffect(() => {
     setToken(data.token);
+    setConfig(data.config);
   }, []);
 
   if (typeof window === 'undefined') {
     return null;
   }
 
-  return (
-    <Theater config={data.config} player={data.player} program={data.program} />
-  );
+  return <Theater player={data.player} program={data.program} />;
 }
 
 export default PlayerLayout;

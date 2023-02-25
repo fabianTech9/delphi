@@ -5,18 +5,74 @@
     {
       "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
       "title": "I'm No Angel - Farran Smith Nehme Interview",
-      "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
-      "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
-      "subtitles": [
+      "angles": [
         {
-          "lang": "en",
-          "label": "English",
-          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?a",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": true,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
         },
         {
-          "lang": "es",
-          "label": "Español",
-          "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?b",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        },
+        {
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?c",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        },
+        {
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?c",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
         }
       ],
       "actions": [

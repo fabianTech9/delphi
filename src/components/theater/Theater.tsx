@@ -2,27 +2,26 @@ import React, { useState } from 'react';
 import { Player as LottiePlayer } from '@lottiefiles/react-lottie-player';
 
 import Actions from '@components/actions/Actions';
+import Angles from '@components/angles/Angles';
 import Player from '@components/player/Player';
 import Video from '@components/video/Video';
 
 import styles from './Theater.module.scss';
 
-function Theater({ config, program, player }: any): JSX.Element {
+function Theater({ program, player }: any): JSX.Element {
   const [hasLoaded, setHasLoaded] = useState(null);
 
-  const playlist = { program };
+  const playlist = program.segments;
   const isPhenix = player === 'phenix';
-  const playerElement = isPhenix ? (
-    <Player />
-  ) : (
-    <Video config={config} playlist={playlist} />
-  );
+  const playerElement = isPhenix ? <Player /> : <Video playlist={playlist} />;
   const content = (
     <>
       <div className={styles.videoContainer}>{playerElement}</div>
+      <Angles />
       <Actions />
     </>
   );
+
   const handleMouseEnter = (): void => {
     setHasLoaded(true);
   };
