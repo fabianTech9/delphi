@@ -16,9 +16,32 @@ function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
   const [isReady, setIsReady] = useState(false);
   const { videoState } = useContext(VideoStateContext);
 
+  videoState.useSubscription((event) => {
+    if (!player || !isReady) {
+      return;
+    }
+
+    if (event.state === 'Paused') {
+      player.pause();
+    } else if (event.state === 'Playing') {
+      player.seek(event.time);
+      player.play();
+    } else if (event.state === 'Seek') {
+      player.seek(event.time);
+    } else if (event.state === 'Seeked') {
+      player.seek(event.time);
+    }
+  });
+
   const playerConfig = {
     ...config,
     ui: false,
+    playback: {
+      muted: true,
+    },
+    adaptation: {
+      limitToPlayerSize: true,
+    },
   };
 
   const loadVideo = async (playerInstance, video): Promise<void> => {
@@ -33,22 +56,6 @@ function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
       loadVideo(player, currentVideo);
     }
   }, [currentVideo, player]);
-
-  useEffect(() => {
-    if (!videoState || !player || !isReady) {
-      return;
-    }
-
-    if (videoState.state === 'Paused') {
-      player.seek(videoState.time);
-      player.pause();
-    } else if (videoState.state === 'Playing') {
-      player.seek(videoState.time);
-      player.play();
-    } else if (videoState.state === 'Seek') {
-      player.seek(videoState.time);
-    }
-  }, [videoState, player, isReady]);
 
   useEffect(() => {
     const setupPlayer = (): void => {

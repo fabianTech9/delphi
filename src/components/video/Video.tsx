@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useEventEmitter } from 'ahooks';
 import { Player, PlayerEvent } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
@@ -19,6 +20,9 @@ function Video({ playlist }: any): JSX.Element {
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
   const [currentActions, setCurrentActions] = useState([]);
+  const event$ = useEventEmitter<any>();
+
+  setVideoState(event$);
 
   let i = 0;
 
@@ -26,6 +30,9 @@ function Video({ playlist }: any): JSX.Element {
   const playerConfig = {
     ...config,
     ui: false,
+    adaptation: {
+      limitToPlayerSize: true,
+    },
   };
 
   const addSubtitles = (playerInstance, subtitles): void => {
@@ -71,19 +78,25 @@ function Video({ playlist }: any): JSX.Element {
         }
       });
       playerInstance.on(PlayerEvent.Paused, () => {
-        setVideoState({
+        event$.emit({
           state: 'Paused',
           time: playerInstance.getCurrentTime(),
         });
       });
-      playerInstance.on(PlayerEvent.Playing, () => {
-        setVideoState({
+      playerInstance.on(PlayerEvent.Play, () => {
+        event$.emit({
           state: 'Playing',
           time: playerInstance.getCurrentTime(),
         });
       });
+      playerInstance.on(PlayerEvent.Seek, () => {
+        event$.emit({
+          state: 'Seek',
+          time: playerInstance.getCurrentTime(),
+        });
+      });
       playerInstance.on(PlayerEvent.Seeked, () => {
-        setVideoState({
+        event$.emit({
           state: 'Seek',
           time: playerInstance.getCurrentTime(),
         });
