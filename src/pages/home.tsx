@@ -9,6 +9,9 @@ import { SlugProps } from 'types/slugProps';
 import getJSONFile from '../api/file/file';
 import getToken from '../helper/token';
 
+import configJson from './config.json';
+import playlistJson from './playlist.json';
+
 const PlayerLayout = dynamic(() => import('@layouts/PlayerLayout'));
 
 function HomePage({ data }: SlugProps): JSX.Element {
@@ -28,8 +31,9 @@ export async function getServerSideProps({
   const playListUrl = (query?.media as string) ?? `${baseUrl}/playlist.json`;
   const player = (query?.player as string) ?? 'bitmovin';
 
-  const config = await getJSONFile(configUrl);
-  const program = await getJSONFile(playListUrl);
+  const config = (await getJSONFile(configUrl)) || configJson;
+  const program = (await getJSONFile(playListUrl)) || playlistJson;
+
   const token = getToken(config, program);
 
   return {

@@ -7,7 +7,7 @@ const getJSONFile = async (url): Promise<any> => {
     // eslint-disable-next-line no-console
     console.log(e);
 
-    return {};
+    return null;
   }
 };
 
