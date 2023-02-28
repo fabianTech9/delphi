@@ -83,7 +83,7 @@ function Video({ playlist }: any): JSX.Element {
           time: playerInstance.getCurrentTime(),
         });
       });
-      playerInstance.on(PlayerEvent.Play, () => {
+      playerInstance.on(PlayerEvent.Playing, () => {
         event$.emit({
           state: 'Playing',
           time: playerInstance.getCurrentTime(),
