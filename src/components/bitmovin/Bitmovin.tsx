@@ -28,8 +28,6 @@ function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
       player.play();
     } else if (event.state === 'Seek') {
       player.seek(event.time);
-    } else if (event.state === 'Seeked') {
-      player.seek(event.time);
     }
   });
 
