@@ -1,0 +1,15 @@
+body {
+  font-family: 'Red Hat Display', sans-serif;;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background: var(--color-background);
+  height: 100vh;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100vw;
+}
+

@@ -6,7 +6,7 @@ import { NextIntlProvider } from 'next-intl';
 import VideoContextProvider from '../context/video/VideoContext';
 import VideoStateContextProvider from '../context/videoState/VideoContext';
 
-import '../styles/global.scss';
+import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }: AppProps<{ messages }>): JSX.Element {
   return (

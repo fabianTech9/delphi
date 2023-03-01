@@ -1,0 +1,20 @@
+@import "../../styles/abstracts/mixins";
+
+.player {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  @include reset-player;
+
+  :global(.bitmovinplayer-container) {
+    min-width: auto;
+  }
+
+  :global(.bitmovinplayer-container  video) {
+    height: auto;
+    bottom: auto;
+  }
+}
+
+

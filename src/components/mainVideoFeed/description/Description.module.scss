@@ -1,0 +1,13 @@
+@import "../../../styles/abstracts/mixins.scss";
+
+.container {
+  margin-left: 1.75rem;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+}
+
+.title {
+  margin-bottom: 0.5625rem;
+}
