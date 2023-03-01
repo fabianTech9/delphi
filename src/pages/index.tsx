@@ -12,8 +12,9 @@ const Main: NextPage = ({ data }: SlugProps): JSX.Element => (
     <Head>
       <title>Delphi</title>
       <meta content="Delphi" name="description" />
+      <link href="https://use.typekit.net/bap8ixx.css" rel="stylesheet" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600"
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap"
         rel="stylesheet"
       />
       <script src="https://dl.phenixrts.com/JsSDK/2022.0.latest/min/channels.js" />

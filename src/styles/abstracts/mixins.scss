@@ -1,0 +1,26 @@
+@mixin reset-player {
+  :global {
+    .bmpui-ui-controlbar {
+      display: block;
+      background: none;
+    }
+
+    .bmpui-ui-watermark,
+    .bmpui-ui-titlebar,
+    .bmpui-ui-cast-status-overlay {
+      display: none;
+    }
+
+    .bmpui-ui-playbacktoggle-overlay {
+      display: block;
+    }
+
+    .bitmovinplayer-container {
+      background: var(--color-background);
+    }
+
+    .bmpui-ui-hugeplaybacktogglebutton {
+      opacity: 0;
+    }
+  }
+}

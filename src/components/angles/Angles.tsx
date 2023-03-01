@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Bitmovin from '@components/bitmovin/Bitmovin';
+import { VideoContext } from '@context/video/VideoContext';
 
-import { VideoContext } from '../../context/video/VideoContext';
+import VideoFeed from '@components/videoFeed/VideoFeed';
 
 import styles from './Angles.module.scss';
 
@@ -21,7 +21,7 @@ function Angles(): JSX.Element {
   }, [currentVideo]);
 
   const anglesEl = angles.map((angle) => (
-    <Bitmovin currentVideo={angle} key={angle.hls} />
+    <VideoFeed currentVideo={angle} key={angle.hls} />
   ));
 
   return <div className={styles.container}>{anglesEl}</div>;

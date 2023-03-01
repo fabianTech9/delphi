@@ -1,46 +1,36 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Player, PlayerEvent } from 'bitmovin-player';
-import cn from 'classname';
+import { Player } from 'bitmovin-player';
 
-import { VideoContext } from '../../context/video/VideoContext';
-import { VideoStateContext } from '../../context/videoState/VideoContext';
+import { VideoStateContext } from '@context/videoState/VideoContext';
 
-import styles from './Bitmovin.module.scss';
+import VideoState from '@components/enums/VideoState';
+
+import useBitmovinConfig from '@hooks/useBitmovinConfig/useBitmovinConfig';
+
+import styles from './VideoFeed.module.scss';
 
 import 'bitmovin-player/bitmovinplayer-ui.css';
 
-function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
-  const { config } = useContext(VideoContext);
+function VideoFeed({ currentVideo }: any): JSX.Element {
+  const playerConfig = useBitmovinConfig();
   const playerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
-  const [isReady, setIsReady] = useState(false);
   const { videoState } = useContext(VideoStateContext);
 
   videoState.useSubscription((event) => {
-    if (!player || !isReady) {
+    if (!player) {
       return;
     }
 
-    if (event.state === 'Paused') {
+    if (event.state === VideoState.Paused) {
       player.pause();
-    } else if (event.state === 'Playing') {
+    } else if (event.state === VideoState.Playing) {
       player.seek(event.time);
       player.play();
-    } else if (event.state === 'Seek') {
+    } else if (event.state === VideoState.Seek) {
       player.seek(event.time);
     }
   });
-
-  const playerConfig = {
-    ...config,
-    ui: false,
-    playback: {
-      muted: true,
-    },
-    adaptation: {
-      limitToPlayerSize: true,
-    },
-  };
 
   const loadVideo = async (playerInstance, video): Promise<void> => {
     const { hls } = video;
@@ -58,13 +48,6 @@ function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
   useEffect(() => {
     const setupPlayer = (): void => {
       const playerInstance = new Player(playerDiv.current, playerConfig);
-
-      playerInstance.on(PlayerEvent.Ready, () => {
-        setIsReady(true);
-      });
-      playerInstance.on(PlayerEvent.PlaybackFinished, () => {
-        onPlayerFinishes();
-      });
 
       setPlayer(playerInstance);
     };
@@ -84,10 +67,10 @@ function Bitmovin({ currentVideo, onPlayerFinishes }: any): JSX.Element {
   }, []);
 
   return (
-    <div className={cn(styles.playerWrapper)}>
-      <div className="player" ref={playerDiv} />
+    <div className={styles.player}>
+      <div className={styles.player} ref={playerDiv} />
     </div>
   );
 }
 
-export default Bitmovin;
+export default VideoFeed;

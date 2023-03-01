@@ -119,10 +119,6 @@
             "^@?\\w"
           ],
           [
-            "^@chakra",
-            "^@?\\w"
-          ],
-          [
             "^next",
             "^@?\\w"
           ],
@@ -133,6 +129,9 @@
           // Internal folsers
           [
             "^(@animations)(/.*|$)"
+          ],
+          [
+            "^(@context)(/.*|$)"
           ],
           [
             "^(@components)(/.*|$)"

@@ -3,8 +3,8 @@ import { Player as LottiePlayer } from '@lottiefiles/react-lottie-player';
 
 import Actions from '@components/actions/Actions';
 import Angles from '@components/angles/Angles';
+import MainVideoFeed from '@components/mainVideoFeed/MainVideoFeed';
 import Player from '@components/player/Player';
-import Video from '@components/video/Video';
 
 import styles from './Theater.module.scss';
 
@@ -13,7 +13,11 @@ function Theater({ program, player }: any): JSX.Element {
 
   const playlist = program.segments;
   const isPhenix = player === 'phenix';
-  const playerElement = isPhenix ? <Player /> : <Video playlist={playlist} />;
+  const playerElement = isPhenix ? (
+    <Player />
+  ) : (
+    <MainVideoFeed playlist={playlist} />
+  );
   const content = (
     <>
       <div className={styles.videoContainer}>{playerElement}</div>
