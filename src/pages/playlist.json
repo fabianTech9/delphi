@@ -158,19 +158,7 @@
         {
           "main": true,
           "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
-          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
-          "subtitles": [
-            {
-              "lang": "en",
-              "label": "English",
-              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
-            },
-            {
-              "lang": "es",
-              "label": "Español",
-              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
-            }
-          ]
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
         }
       ]
     },

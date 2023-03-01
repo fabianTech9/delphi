@@ -179,13 +179,15 @@ function MainPlayer({
         {currentFeed.name && (
           <p className={styles.feedName}>{currentFeed.name}</p>
         )}
-        <IconButton
-          className={styles.subtitles}
-          height={24}
-          imageUrl="/icons/subtitles.svg"
-          title="back"
-          width={24}
-        />
+        {currentFeed.subtitles && (
+          <IconButton
+            className={styles.subtitles}
+            height={24}
+            imageUrl="/icons/subtitles.svg"
+            title="back"
+            width={24}
+          />
+        )}
       </div>
     </div>
   );
