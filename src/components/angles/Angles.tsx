@@ -20,6 +20,8 @@ function Angles(): JSX.Element {
     setAngles(newAngles);
   }, [currentVideo]);
 
+  return null;
+
   const anglesEl = angles.map((angle) => (
     <VideoFeed currentVideo={angle} key={angle.hls} />
   ));
