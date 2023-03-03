@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delphi</title>
+    <meta content="text/html charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+
+<body>
+<style>
+    table, tr, td {
+        padding: 0;
+        margin: 0;
+    }
+
+    .normal {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+
+    .small {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 400;
+    }
+
+    .header {
+        width: 100%;
+        background: #000000;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .container {
+        font-family: 'Red Hat Display', sans-serif;
+        border: 1px solid #D9D9D9;
+        padding: 16px 10px;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        padding: 18px 20px;
+        margin: 0;
+    }
+
+    .description {
+        padding: 19px 20px;
+        margin: 0 0 10px;
+    }
+
+    .button-container {
+        width: 100%;
+    }
+
+    .button {
+        background: #4401FF;
+        color: #ffffff;
+        padding: 9px 50px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .content {
+        margin: 0 0 9px;
+        padding: 49px 20px;
+    }
+
+    .divider {
+        border: 1px solid #D9D9D9;
+        border-bottom: 0;
+        margin: 0 0 10px;
+    }
+
+    .disclaimer {
+        padding: 67px 20px;
+        margin: 0 0 10px;
+    }
+
+    .footer {
+        background: #000000;
+        padding: 10px 0 14px;
+        margin: 0;
+        color: #ffffff;
+    }
+
+    .footer-content {
+        width: 100%;
+    }
+
+    .footer-copy {
+        padding: 52px 20px;
+        margin: 0 0 10px;
+        color: #ffffff;
+    }
+
+    .footer-links {
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .footer-link {
+        color: #2A9DDD;
+        padding: 6px 4px;
+        display: inline-block;
+    }
+
+    .copyright {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        padding: 6px 20px;
+        color: #ffffff;
+    }
+</style>
+<table cellspacing="0" class="container">
+    <tbody>
+    <tr>
+        <td>
+            <div class="header">
+                <img alt="Delphi"
+                     class="logo"
+                     src="https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONT25E92867839A40F5A3783E1130875F8F/native/delphi-lockup-negative-no-background.png?channelToken=d57d3338641c4004a255b7be5e742af6"/>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h1 class="title">{{subject}}</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="description normal">{{body}}</p>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="button-container">
+            <a class="button" href="{{url}}">{{buttonText}}</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="content normal">{{content}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <hr class="divider"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="disclaimer small">
+                {{disclaimer}}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="footer">
+            <table cellspacing="0" class="footer-content">
+                <tbody>
+                <tr>
+                    <td>
+                        <p class="footer-copy small">{{footerCopy}}</p>
+
+                    </td>
+                </tr>
+                <tr class="footer-links small">
+                    <td>
+                        <a class="footer-link" href="#">Legal Notices and Terms of Use</a> ·
+                        <a class="footer-link" href="#">Privacy Policy</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="copyright small">© 2023, Delphi International, LLC and/or its affiliates  ·  All rights reserved</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
