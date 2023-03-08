@@ -59,9 +59,21 @@
       margin-right: 1rem;
     }
 
+    .bmpui-ui-playbacktogglebutton.bmpui-on {
+      background-image: url('/icons/pause.svg');
+    }
+
+    .bmpui-ui-settingstogglebutton {
+      display: none;
+    }
+
     .bmpui-ui-volumetogglebutton,
     .bmpui-ui-volumetogglebutton.bmpui-unmuted {
-      background-image: url('/icons/audio.svg');
+      background-image: url('/icons/volume-100.svg');
+    }
+
+    .bmpui-ui-volumetogglebutton.bmpui-muted {
+      background-image: url('/icons/volume-mute.svg');
     }
 
     .bmpui-ui-fullscreentogglebutton {
@@ -150,7 +162,7 @@
 .subtitles {
   bottom: 13px;
   position: absolute;
-  right: 174px;
+  right: 130px;
   pointer-events: all;
 }
 
@@ -177,6 +189,6 @@
   }
 
   .subtitles {
-    right: 218px;
+    right: 174px;
   }
 }

@@ -14,7 +14,7 @@ function Theater({ program, player }: any): JSX.Element {
   const playlist = program.segments;
   const isPhenix = player === 'phenix';
   const playerElement = isPhenix ? (
-    <Player />
+    <Player playlist={playlist} />
   ) : (
     <MainVideoFeed playlist={playlist} />
   );

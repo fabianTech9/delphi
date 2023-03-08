@@ -1,0 +1,254 @@
+{
+  "programId": "123456",
+  "channelId": "us-northeast#my-application-id#my-channel.1345",
+  "segments": [
+    {
+      "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
+      "title": "Eric Church in Concert",
+      "description1": "01 September 2022",
+      "description2": "Staples Center",
+      "description3": "Los Angeles, California",
+      "isCastingEnabled": true,
+      "analytics": {
+        "customData1": "any custom data 1",
+        "customData2": "any custom data 2",
+        "customData3": "any custom data 3",
+        "customData4": "any custom data 4",
+        "customData5": "any custom data 5"
+      },
+      "angles": [
+        {
+          "name": "CAM 1",
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?a",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": true,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        },
+        {
+          "name": "CAM 2",
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?b",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        },
+        {
+          "name": "CAM 3",
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?c",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        },
+        {
+          "name": "CAM 4",
+          "hls": "//bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8?c",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net",
+          "main": false,
+          "subtitles": [
+            {
+              "lang": "en",
+              "label": "English",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_en.vtt"
+            },
+            {
+              "lang": "es",
+              "label": "Español",
+              "url": "https://bitdash-a.akamaihd.net/content/sintel/subtitles/subtitles_es.vtt"
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": "bb2d30a4-3014-42f3-b3f6-4593eb86beca",
+          "type": "quiz",
+          "startTime": 3,
+          "endTime": 13,
+          "background": "/images/win.jpg",
+          "question": "<p>Do you like the <b>quiz</b>?</p>",
+          "countdown": 10,
+          "answers": [
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bece",
+              "label": "Yes, I love it",
+              "style": "round-number"
+            },
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebb",
+              "label": "Sure, It's cool",
+              "style": "round-number"
+            },
+            {
+              "id": "bb2d30a4-3014-42f3-b3f6-4593eb86bebc",
+              "label": "Not, I hate it",
+              "style": "round-number"
+            }
+          ],
+          "backgroundColor": "transparent",
+          "textColor": "#fff"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef1",
+          "type": "overlay",
+          "startTime": 3,
+          "endTime": 10,
+          "image": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONTA2F19C865F9145AEA78127858F76AB79/native/Lower+Third.png?channelToken=d57d3338641c4004a255b7be5e742af6"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef2",
+          "type": "textBanner",
+          "startTime": 25,
+          "endTime": 30,
+          "image": "/images/pepsi.jpeg",
+          "text": "<p>The choice of new generation</p><p>Drink the <b>happiness</b></p>",
+          "borderColor": "#0065c3",
+          "backgroundColor": "#0065c3a6",
+          "textColor": "#fff"
+        },
+        {
+          "id": "4bfd2ed9-e93f-418c-a24b-2c49b083cef3",
+          "type": "textBanner",
+          "startTime": 15,
+          "endTime": 23,
+          "image": "/images/pepsi2.png",
+          "text": "<p><b>Pepsi</b> zero sugar</p><p>Delivers the love</p>",
+          "url": "https://www.pepsi.com/",
+          "borderColor": "#000",
+          "backgroundColor": "#000000a6",
+          "textColor": "#fff"
+        }
+      ]
+    },
+    {
+      "videoId": "COREDD8B45CD912D484A86D8F4CC13D47BDD",
+      "title": "Giant - Archival Image Slideshow",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "COREEFDE872770A24F57B241F3FCEBB78B72",
+      "title": "I'm No Angel - Cassandra Moore Interview",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/COREEFDE872770A24F57B241F3FCEBB78B72/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "COREFBB68F76B3FB4A2DA5AFE682F9EE26FD",
+      "title": "Kummatty Slideshow",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/COREFBB68F76B3FB4A2DA5AFE682F9EE26FD/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "CORE0D96C68A1B4E474B9DF5E091508FA905",
+      "title": "The Film Foundation Introduction",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE0D96C68A1B4E474B9DF5E091508FA905/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "CORE775AFC44D0E54BB28A25282C2C4C0FFA",
+      "title": "Kummatty Before and After Reel",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE775AFC44D0E54BB28A25282C2C4C0FFA/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "CORE050401C9BEE54FEB8F04CB5274A0EEBB",
+      "title": "Material World Foundation Trailer",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE050401C9BEE54FEB8F04CB5274A0EEBB/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "COREB23AE6F3D66F484AB216C1B7555E380B",
+      "title": "La Strada - Kris Kristofferson Documentary",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/COREB23AE6F3D66F484AB216C1B7555E380B/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "CORE1F030DF759814BA2B7A46A3D3B2F090D",
+      "title": "FESPACO Trailer",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE1F030DF759814BA2B7A46A3D3B2F090D/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    },
+    {
+      "videoId": "CORE69C64F4AA25648E795D690EE4BB6AA72",
+      "title": "Moulin Rouge - Restoration Before and After",
+      "angles": [
+        {
+          "main": true,
+          "hls": "https://djr4ftyk8j2am.cloudfront.net/CORE69C64F4AA25648E795D690EE4BB6AA72/manifest.m3u8",
+          "cdnProvider": "https://djr4ftyk8j2am.cloudfront.net"
+        }
+      ]
+    }
+  ]
+}

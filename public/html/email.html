@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Delphi</title>
-    <meta content="text/html charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,6 +43,11 @@
         width: 100%;
         max-width: 600px;
         margin: auto;
+        box-sizing: border-box;
+    }
+
+    .parent {
+        width: 100%;
     }
 
     .title {
@@ -126,78 +129,81 @@
         width: 100%;
         display: inline-block;
         padding: 6px 20px;
+        box-sizing: border-box;
     }
 </style>
-<table cellspacing="0" class="container">
-    <tbody>
-    <tr>
-        <td class="header">
-            <img alt="Delphi"
-                 class="logo"
-                 src="https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONT25E92867839A40F5A3783E1130875F8F/native/delphi-lockup-negative-no-background.png?channelToken=d57d3338641c4004a255b7be5e742af6"/>
-        </td>
-    </tr>
+<div class="container">
+    <table cellspacing="0" class="parent">
+        <tbody>
+        <tr>
+            <td class="header">
+                <img alt="Delphi"
+                     class="logo"
+                     src="https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONT25E92867839A40F5A3783E1130875F8F/native/delphi-lockup-negative-no-background.png?channelToken=d57d3338641c4004a255b7be5e742af6"/>
+            </td>
+        </tr>
 
-    <tr>
-        <td>
-            <h1 class="title">{{subject}}</h1>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p class="description normal">{{body}}</p>
-        </td>
+        <tr>
+            <td>
+                <h1 class="title">{{subject}}</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="description normal">{{body}}</p>
+            </td>
 
-    </tr>
-    <tr>
-        <td class="button-container">
-            <a class="button" href="{{url}}">{{buttonText}}</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p class="content normal">{{content}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <hr class="divider"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p class="disclaimer small">
-                {{disclaimer}}
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="footer">
-            <table cellspacing="0" class="footer-content">
-                <tbody>
-                <tr>
-                    <td>
-                        <p class="footer-copy small">{{footerCopy}}</p>
+        </tr>
+        <tr>
+            <td class="button-container">
+                <a class="button" href="{{url}}">{{buttonText}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="content normal">{{content}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <hr class="divider"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="disclaimer small">
+                    {{disclaimer}}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer">
+                <table cellspacing="0" class="footer-content">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p class="footer-copy small">{{footerCopy}}</p>
 
-                    </td>
-                </tr>
-                <tr class="footer-links small">
-                    <td>
-                        <a class="footer-link" href="#">Legal Notices and Terms of Use</a> ·
-                        <a class="footer-link" href="#">Privacy Policy</a>
-                    </td>
+                        </td>
+                    </tr>
+                    <tr class="footer-links small">
+                        <td>
+                            <a class="footer-link" href="#">Legal Notices and Terms of Use</a> ·
+                            <a class="footer-link" href="#">Privacy Policy</a>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <span class="copyright small">© 2023, Delphi International, LLC and/or its affiliates  ·  All rights reserved</span>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    </tbody>
-</table>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="copyright small">© 2023, Delphi International, LLC and/or its affiliates  ·  All rights reserved</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

@@ -36,6 +36,12 @@ export async function getServerSideProps({
 
   const token = getToken(config, program);
 
+  program.segments.forEach((segment) => {
+    segment.angles.forEach((angle) => {
+      angle.streamToken = token;
+    });
+  });
+
   return {
     props: {
       pageID: 'home',

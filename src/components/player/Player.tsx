@@ -1,35 +1,21 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { VideoContext } from '../../context/video/VideoContext';
+import MainPlayer from '@components/player/mainPlayer/MainPlayer';
 
-import styles from './Player.module.scss';
-
-function Player(): JSX.Element {
-  const { token } = useContext(VideoContext);
-  const playerDiv = useRef(null);
+function Player({ playlist }: any): JSX.Element {
+  const [currentFeed, setCurrentFeed] = useState();
+  const currentVideo = playlist[0];
 
   useEffect(() => {
-    if (!token) {
-      return;
-    }
-    // @ts-ignore
-    window.phenix.Channels.createChannel({
-      videoElement: playerDiv.current,
-      token,
-    });
-  }, [token]);
+    const newFeed = playlist[0].angles.find((angle) => angle.main);
+    setCurrentFeed(newFeed);
+  });
 
-  return (
-    <video
-      autoPlay
-      controls
-      muted
-      playsInline
-      className={styles.player}
-      id="myVideoId"
-      ref={playerDiv}
-    />
-  );
+  if (!currentFeed || !currentVideo) {
+    return null;
+  }
+
+  return <MainPlayer currentFeed={currentFeed} currentVideo={currentVideo} />;
 }
 
 export default Player;

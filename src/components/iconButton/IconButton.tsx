@@ -11,12 +11,14 @@ function IconButton({
   title,
   width,
   height,
+  onClick,
 }: any): JSX.Element {
   return (
     <button
       className={cn(styles.button, className)}
       title={title}
       type="button"
+      onClick={() => onClick && onClick()}
     >
       <Image height={height} src={imageUrl} width={width} />
     </button>
