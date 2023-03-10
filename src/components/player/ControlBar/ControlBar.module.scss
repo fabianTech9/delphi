@@ -16,6 +16,10 @@
   flex: 0 0 auto;
 }
 
+.feedName {
+  margin-top: -3px;
+}
+
 .barContainer {
   display: flex;
   align-items: center;
@@ -57,4 +61,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.fullscreen {
+  margin-top: -4px;
 }

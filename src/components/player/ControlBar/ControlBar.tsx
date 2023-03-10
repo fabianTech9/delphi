@@ -103,6 +103,7 @@ function ControlBar({ player, currentFeed, classname }: any): JSX.Element {
             width={24}
           />
           <IconButton
+            className={styles.fullscreen}
             height={24}
             imageUrl="/icons/full-screen.svg"
             title="Fullscreen"

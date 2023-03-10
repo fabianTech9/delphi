@@ -34,7 +34,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
 
     const timer = setTimeout(() => {
       setShowControls(false);
-    }, 5000);
+    }, 2000);
 
     // @ts-ignore
     setHideControlsTimer(timer);

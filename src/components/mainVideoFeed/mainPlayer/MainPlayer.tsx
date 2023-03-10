@@ -151,7 +151,7 @@ function MainPlayer({
 
     const timer = setTimeout(() => {
       setShowControls(false);
-    }, 5000);
+    }, 2000);
 
     // @ts-ignore
     setHideControlsTimer(timer);

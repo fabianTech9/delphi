@@ -2,14 +2,6 @@
   display: inline-block;
   position: relative;
   width: 100%;
-
-  :global(.bmpui-ui-controlbar) {
-    display: block;
-  }
-
-  :global(.bmpui-ui-playbacktoggle-overlay) {
-    display: block;
-  }
 }
 
 .playerControls {

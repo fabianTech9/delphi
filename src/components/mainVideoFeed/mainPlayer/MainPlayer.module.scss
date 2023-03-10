@@ -12,6 +12,7 @@
       padding-left: 0;
       padding-right: 0;
       z-index: 3;
+      display: none;
 
       .bmpui-controlbar-top {
         .bmpui-ui-playbacktimelabel {
@@ -63,7 +64,10 @@
       background-image: url('/icons/pause.svg');
     }
 
-    .bmpui-ui-settingstogglebutton {
+    .bmpui-ui-piptogglebutton,
+    .bmpui-ui-airplaytogglebutton,
+    .bmpui-ui-settingstogglebutton,
+    .bmpui-ui-vrtogglebutton, {
       display: none;
     }
 
@@ -80,6 +84,7 @@
       order: 3;
       background-image: url('/icons/full-screen.svg');
       margin-right: 0;
+      background-position-y: -2px;
     }
 
     .bmpui-ui-settingstogglebutton {
@@ -178,6 +183,12 @@
 .showControls {
   .controlBar {
     opacity: 1;
+  }
+
+  :global {
+    .bmpui-ui-controlbar {
+      display: block;
+    }
   }
 }
 
