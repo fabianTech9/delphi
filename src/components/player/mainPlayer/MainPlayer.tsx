@@ -11,6 +11,7 @@ import 'bitmovin-player/bitmovinplayer-ui.css';
 
 function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
   const playerDiv = useRef(null);
+  const containerDiv = useRef(null);
 
   const { streamToken } = currentFeed;
   const [showControls, setShowControls] = useState(false);
@@ -47,6 +48,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
         [styles.showControls]: showControls,
         [styles.canCast]: currentVideo.isCastingEnabled,
       })}
+      ref={containerDiv}
       onMouseMove={handleMouseMove}
     >
       <video
@@ -68,6 +70,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
         <Description video={currentVideo} />
         <ControlBar
           classname={styles.controls}
+          containerRef={containerDiv.current}
           currentFeed={currentFeed}
           player={playerDiv.current}
         />

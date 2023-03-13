@@ -11,20 +11,20 @@ function ControlBar({
   currentFeed,
   classname,
 }: any): JSX.Element {
-  const [initialTime] = useState(new Date());
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [percentage, setPercentage] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   useEffect(() => {
-    let value = 0;
     setInterval(() => {
-      const newPercentage = 100 * (value / (value + 100));
+      if (player) {
+        const newPercentage =
+          100 * (player.getCurrentTime() / player.getDuration());
 
-      setPercentage(newPercentage);
-      value += 0.1;
+        setPercentage(newPercentage);
+      }
     }, 300);
-  }, []);
+  }, [player]);
 
   useEffect(() => {
     if (containerRef) {
@@ -34,16 +34,20 @@ function ControlBar({
     }
   }, [containerRef]);
   const handlePlayClick = (): void => {
-    if (player.paused) {
-      player.play();
-    } else {
+    if (player.isPlaying()) {
       player.pause();
+    } else {
+      player.play();
     }
     setLastUpdate(new Date());
   };
 
   const handleVolumeClick = (): void => {
-    player.muted = !player.muted;
+    if (player.isMuted()) {
+      player.unmute();
+    } else {
+      player.mute();
+    }
     setLastUpdate(new Date());
   };
 
@@ -67,8 +71,7 @@ function ControlBar({
       .join(':');
   };
 
-  const currentTimeMilliseconds = Number(new Date()) - Number(initialTime);
-  const currentTime = formatTime(currentTimeMilliseconds);
+  const currentTime = formatTime((player?.getCurrentTime() || 0) * 1000);
 
   if (!lastUpdate) {
     return null;
@@ -87,13 +90,13 @@ function ControlBar({
       </div>
       <div className={styles.buttonsContainer}>
         <div className={styles.leftSide}>
-          {currentFeed.name && (
-            <p className={styles.feedName}>{currentFeed.name}</p>
-          )}
+          <p className={styles.feedName}>{currentFeed.name}</p>
           <div className={styles.buttons}>
             <IconButton
               height={24}
-              imageUrl={player?.paused ? '/icons/play.svg' : '/icons/pause.svg'}
+              imageUrl={
+                player?.isPlaying() ? '/icons/pause.svg' : '/icons/play.svg'
+              }
               title="Play"
               width={24}
               onClick={handlePlayClick}
@@ -101,7 +104,7 @@ function ControlBar({
             <IconButton
               height={24}
               imageUrl={
-                player?.muted
+                player?.isMuted()
                   ? '/icons/volume-mute.svg'
                   : '/icons/volume-100.svg'
               }
@@ -112,6 +115,15 @@ function ControlBar({
           </div>
         </div>
         <div className={styles.buttons}>
+          {currentFeed.subtitles && (
+            <IconButton
+              className={styles.subtitles}
+              height={24}
+              imageUrl="/icons/subtitles.svg"
+              title="subtitles"
+              width={24}
+            />
+          )}
           <IconButton
             height={24}
             imageUrl="/icons/cast.svg"

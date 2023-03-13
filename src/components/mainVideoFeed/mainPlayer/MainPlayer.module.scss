@@ -12,7 +12,7 @@
       padding-left: 0;
       padding-right: 0;
       z-index: 3;
-      display: none;
+      display: none !important;
 
       .bmpui-controlbar-top {
         .bmpui-ui-playbacktimelabel {
@@ -131,7 +131,6 @@
 }
 
 .controlBar {
-  pointer-events: none;
   width: 100%;
   margin: auto;
   position: absolute;
@@ -162,6 +161,13 @@
 
 .title {
   margin-bottom: 0.5625rem;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .subtitles {

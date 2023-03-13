@@ -4,6 +4,7 @@ import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
 
 import IconButton from '@components/iconButton/IconButton';
+import ControlBar from '@components/mainVideoFeed/ControlBar/ControlBar';
 import Description from '@components/mainVideoFeed/description/Description';
 
 import useBitmovinConfig from '@hooks/useBitmovinConfig/useBitmovinConfig';
@@ -22,6 +23,7 @@ function MainPlayer({
 }: any): JSX.Element {
   const playerConfig = useBitmovinConfig(false);
   const playerDiv = useRef(null);
+  const containerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
   const [showControls, setShowControls] = useState(false);
   const [hideControlsTimer, setHideControlsTimer] = useState();
@@ -164,9 +166,11 @@ function MainPlayer({
         [styles.showControls]: showControls,
         [styles.canCast]: currentVideo.isCastingEnabled,
       })}
+      ref={containerDiv}
       onMouseMove={handleMouseMove}
     >
       <div className="player" ref={playerDiv} />
+
       <div className={styles.controlBar}>
         <IconButton
           className={styles.back}
@@ -176,18 +180,12 @@ function MainPlayer({
           width={50}
         />
         <Description video={currentVideo} />
-        {currentFeed.name && (
-          <p className={styles.feedName}>{currentFeed.name}</p>
-        )}
-        {currentFeed.subtitles && (
-          <IconButton
-            className={styles.subtitles}
-            height={24}
-            imageUrl="/icons/subtitles.svg"
-            title="back"
-            width={24}
-          />
-        )}
+        <ControlBar
+          classname={styles.controls}
+          containerRef={containerDiv.current}
+          currentFeed={currentFeed}
+          player={player}
+        />
       </div>
     </div>
   );
