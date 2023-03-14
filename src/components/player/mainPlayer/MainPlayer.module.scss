@@ -30,6 +30,10 @@
   transition: opacity .3s;
 }
 
+.isFullScreen {
+  position: fixed;
+}
+
 .titleContainer {
   margin-left: 1.75rem;
   position: absolute;

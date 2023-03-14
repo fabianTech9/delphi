@@ -16,6 +16,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
   const { streamToken } = currentFeed;
   const [showControls, setShowControls] = useState(false);
   const [hideControlsTimer, setHideControlsTimer] = useState();
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   useEffect(() => {
     if (!streamToken) {
@@ -42,6 +43,15 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
     setShowControls(true);
   };
 
+  useEffect(() => {
+    if (containerDiv.current) {
+      containerDiv.current.addEventListener('fullscreenchange', () => {
+        setIsFullScreen(!!document.fullscreenElement);
+      });
+    }
+  }, [playerDiv.current]);
+  console.log(isFullScreen);
+
   return (
     <div
       className={cn(styles.playerWrapper, {
@@ -59,7 +69,11 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
         ref={playerDiv}
       />
 
-      <div className={styles.controlBar}>
+      <div
+        className={cn(styles.controlBar, {
+          [styles.isFullScreen]: isFullScreen,
+        })}
+      >
         <IconButton
           className={styles.back}
           height={50}
