@@ -20,6 +20,7 @@ function MainPlayer({
   eventVideoProgress$,
   userId,
   onFinish,
+  children,
 }: any): JSX.Element {
   const playerConfig = useBitmovinConfig(false);
   const playerDiv = useRef(null);
@@ -187,6 +188,7 @@ function MainPlayer({
           player={player}
         />
       </div>
+      {children}
     </div>
   );
 }

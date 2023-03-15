@@ -50,7 +50,6 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
       });
     }
   }, [playerDiv.current]);
-  console.log(isFullScreen);
 
   return (
     <div

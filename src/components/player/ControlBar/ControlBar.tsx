@@ -3,6 +3,8 @@ import cn from 'classname';
 
 import IconButton from '@components/iconButton/IconButton';
 
+import useFullScreen from '@hooks/useFullScreen/useFullScreen';
+
 import styles from './ControlBar.module.scss';
 
 function ControlBar({
@@ -15,6 +17,7 @@ function ControlBar({
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [percentage, setPercentage] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const setFullScreenMode = useFullScreen();
 
   useEffect(() => {
     let value = 0;
@@ -48,11 +51,7 @@ function ControlBar({
   };
 
   const handleFullscreenClick = (): void => {
-    if (!isFullScreen && containerRef?.requestFullscreen) {
-      containerRef.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
+    setFullScreenMode(containerRef, isFullScreen);
     setLastUpdate(new Date());
   };
 

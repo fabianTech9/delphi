@@ -74,12 +74,12 @@ function MainVideoFeed({ playlist }: any): JSX.Element {
           eventVideoProgress$={eventVideoProgress$}
           userId={userId}
           onFinish={handleFinish}
-        />
+        >
+          {currentActions.map((action) => (
+            <PlayerAction {...action} key={action.id} />
+          ))}
+        </MainPlayer>
       )}
-
-      {currentActions.map((action) => (
-        <PlayerAction {...action} key={action.id} />
-      ))}
     </div>
   );
 }
