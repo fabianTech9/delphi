@@ -74,7 +74,8 @@ function ControlBar({
 
   const getBarPercentage = (event): number => {
     const { offsetWidth } = event.currentTarget;
-    const x = event.pageX - event.currentTarget.offsetLeft;
+    const rect = event.target.getBoundingClientRect();
+    const x = event.pageX - rect.left;
     const barPercentage = x / offsetWidth;
 
     return barPercentage;
