@@ -72,6 +72,20 @@ function ControlBar({
 
   const currentTime = formatTime((player?.getCurrentTime() || 0) * 1000);
 
+  const getBarPercentage = (event): number => {
+    const { offsetWidth } = event.currentTarget;
+    const x = event.pageX - event.currentTarget.offsetLeft;
+    const barPercentage = x / offsetWidth;
+
+    return barPercentage;
+  };
+
+  const handleBarClick = (event): void => {
+    const barPercentage = getBarPercentage(event);
+
+    player.seek(player.getDuration() * barPercentage);
+  };
+
   if (!lastUpdate) {
     return null;
   }
@@ -80,11 +94,15 @@ function ControlBar({
     <div className={cn(styles.container, classname)}>
       <div className={styles.barContainer}>
         <span className={styles.currentTime}>{currentTime}</span>
-        <div className={styles.bar}>
-          <div
-            className={styles.progress}
-            style={{ width: `${percentage}%` }}
-          />
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+        jsx-a11y/no-static-element-interactions */}
+        <div className={styles.bar} onClick={handleBarClick}>
+          <div className={styles.barContent}>
+            <div
+              className={styles.progress}
+              style={{ width: `${percentage}%` }}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.buttonsContainer}>

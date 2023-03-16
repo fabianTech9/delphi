@@ -28,21 +28,27 @@
 
 .bar {
   width: 100%;
-  height: 2px;
-  background: hsla(0, 0%, 100%, .2);
+  padding: 4px 0;
   margin-right: 85px;
   margin-left: 10px;
   position: relative;
+  cursor: pointer;
+}
+
+.barContent {
+  background: hsla(0, 0%, 100%, .2);
+  height: 2px;
+  width: 100%;
 }
 
 .progress {
   background: white;
-  height: 100%;
+  height: 2px;
   width: 30%;
   position: absolute;
-  top: 0;
+  top: 4px;
   left: 0;
-  transition: width 0.3s linear;
+  transition: width 0.1s linear;
 }
 
 .buttonsContainer {
