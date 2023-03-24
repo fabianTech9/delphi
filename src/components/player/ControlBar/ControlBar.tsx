@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classname';
 
 import IconButton from '@components/iconButton/IconButton';
+import Volume from '@components/volume/Volume';
 
 import useFullScreen from '@hooks/useFullScreen/useFullScreen';
 
@@ -45,11 +46,6 @@ function ControlBar({
     setLastUpdate(new Date());
   };
 
-  const handleVolumeClick = (): void => {
-    player.muted = !player.muted;
-    setLastUpdate(new Date());
-  };
-
   const handleFullscreenClick = (): void => {
     setFullScreenMode(containerRef, isFullScreen);
     setLastUpdate(new Date());
@@ -68,6 +64,13 @@ function ControlBar({
 
   const currentTimeMilliseconds = Number(new Date()) - Number(initialTime);
   const currentTime = formatTime(currentTimeMilliseconds);
+
+  const handleVolumeChange = (e): void => {
+    player.muted = e.isMuted;
+    player.volume = e.volume / 100;
+
+    setLastUpdate(new Date());
+  };
 
   if (!lastUpdate) {
     return null;
@@ -97,16 +100,9 @@ function ControlBar({
               width={24}
               onClick={handlePlayClick}
             />
-            <IconButton
-              height={24}
-              imageUrl={
-                player?.muted
-                  ? '/icons/volume-mute.svg'
-                  : '/icons/volume-100.svg'
-              }
-              title="Volume"
-              width={24}
-              onClick={handleVolumeClick}
+            <Volume
+              initialVolume={player?.volume}
+              onVolumeChange={handleVolumeChange}
             />
           </div>
         </div>

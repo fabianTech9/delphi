@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classname';
 
 import IconButton from '@components/iconButton/IconButton';
+import Volume from '@components/volume/Volume';
 
 import useFullScreen from '@hooks/useFullScreen/useFullScreen';
 
@@ -45,15 +46,6 @@ function ControlBar({
     setLastUpdate(new Date());
   };
 
-  const handleVolumeClick = (): void => {
-    if (player.isMuted()) {
-      player.unmute();
-    } else {
-      player.mute();
-    }
-    setLastUpdate(new Date());
-  };
-
   const handleFullscreenClick = (): void => {
     setFullScreenMode(containerRef, isFullScreen);
     setLastUpdate(new Date());
@@ -91,6 +83,17 @@ function ControlBar({
     return null;
   }
 
+  const handleVolumeChange = (e): void => {
+    if (e.isMuted) {
+      player.mute();
+    } else {
+      player.unmute();
+    }
+
+    player.setVolume(e.volume);
+    setLastUpdate(new Date());
+  };
+
   return (
     <div className={cn(styles.container, classname)}>
       <div className={styles.barContainer}>
@@ -111,6 +114,7 @@ function ControlBar({
           <p className={styles.feedName}>{currentFeed.name}</p>
           <div className={styles.buttons}>
             <IconButton
+              className={styles.iconButton}
               height={24}
               imageUrl={
                 player?.isPlaying() ? '/icons/pause.svg' : '/icons/play.svg'
@@ -119,16 +123,9 @@ function ControlBar({
               width={24}
               onClick={handlePlayClick}
             />
-            <IconButton
-              height={24}
-              imageUrl={
-                player?.isMuted()
-                  ? '/icons/volume-mute.svg'
-                  : '/icons/volume-100.svg'
-              }
-              title="Volume"
-              width={24}
-              onClick={handleVolumeClick}
+            <Volume
+              initialVolume={player.getVolume()}
+              onVolumeChange={handleVolumeChange}
             />
           </div>
         </div>
