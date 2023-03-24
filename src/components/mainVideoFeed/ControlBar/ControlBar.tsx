@@ -124,7 +124,7 @@ function ControlBar({
               onClick={handlePlayClick}
             />
             <Volume
-              initialVolume={player.getVolume()}
+              initialVolume={player?.getVolume()}
               onVolumeChange={handleVolumeChange}
             />
           </div>
