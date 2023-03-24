@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import MainPlayer from '@components/player/mainPlayer/MainPlayer';
 
-function Player({ playlist }: any): JSX.Element {
+function Player({ playlist, overlay }: any): JSX.Element {
   const [currentFeed, setCurrentFeed] = useState();
   const currentVideo = playlist[0];
 
@@ -15,7 +15,13 @@ function Player({ playlist }: any): JSX.Element {
     return null;
   }
 
-  return <MainPlayer currentFeed={currentFeed} currentVideo={currentVideo} />;
+  return (
+    <MainPlayer
+      currentFeed={currentFeed}
+      currentVideo={currentVideo}
+      overlay={overlay}
+    />
+  );
 }
 
 export default Player;

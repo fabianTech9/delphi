@@ -9,7 +9,7 @@ import styles from './MainPlayer.module.scss';
 
 import 'bitmovin-player/bitmovinplayer-ui.css';
 
-function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
+function MainPlayer({ currentVideo, currentFeed, overlay }: any): JSX.Element {
   const playerDiv = useRef(null);
   const containerDiv = useRef(null);
 
@@ -17,6 +17,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
   const [showControls, setShowControls] = useState(false);
   const [hideControlsTimer, setHideControlsTimer] = useState();
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (!streamToken) {
@@ -29,7 +30,7 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
     });
   }, [streamToken]);
 
-  const handleMouseMove = (): void => {
+  const handleMouseAction = (): void => {
     if (hideControlsTimer) {
       clearTimeout(hideControlsTimer);
     }
@@ -51,6 +52,14 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
     }
   }, [playerDiv.current]);
 
+  const handlePause = (): void => {
+    setIsPaused(true);
+  };
+
+  const handlePlay = (): void => {
+    setIsPaused(false);
+  };
+
   return (
     <div
       className={cn(styles.playerWrapper, {
@@ -58,7 +67,8 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
         [styles.canCast]: currentVideo.isCastingEnabled,
       })}
       ref={containerDiv}
-      onMouseMove={handleMouseMove}
+      onMouseDown={handleMouseAction}
+      onMouseMove={handleMouseAction}
     >
       <video
         autoPlay
@@ -66,6 +76,14 @@ function MainPlayer({ currentVideo, currentFeed }: any): JSX.Element {
         className={styles.player}
         id="myVideoId"
         ref={playerDiv}
+        onPause={handlePause}
+        onPlay={handlePlay}
+      />
+
+      <img
+        alt="overlay"
+        className={cn(styles.overlay, { [styles.isPaused]: isPaused })}
+        src={overlay}
       />
 
       <div

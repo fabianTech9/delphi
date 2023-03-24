@@ -1,6 +1,7 @@
 {
   "programId": "123456",
   "channelId": "us-northeast#my-application-id#my-channel.1345",
+  "overlay": "https://ocmproduction-delphitheater.ocecdn.oraclecloud.com/content/published/api/v1.1/assets/CONT680EB28C349544D9B0DFD1A1B9A271B0/native/real-time-player-pause-0100.png?channelToken=d57d3338641c4004a255b7be5e742af6",
   "segments": [
     {
       "videoId": "CORE8875CA2EE5594463A69D1898A8BC16A2",
