@@ -61,6 +61,7 @@ function MainPlayer({ currentVideo, currentFeed, overlay }: any): JSX.Element {
   };
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={cn(styles.playerWrapper, {
         [styles.showControls]: showControls,
