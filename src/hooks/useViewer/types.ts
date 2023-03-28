@@ -1,4 +1,3 @@
-import { OnStats } from '@dolbyio/webrtc-stats';
 import { LayerInfo, ViewProjectSourceMapping } from '@millicast/sdk';
 
 export enum ViewerActionType {
@@ -11,6 +10,7 @@ export interface RemoteTrackSource {
   audioMediaId?: string;
   mediaStream: MediaStream;
   projectMapping: ViewProjectSourceMapping[];
+  // eslint-disable-next-line no-use-before-define
   quality?: StreamQuality;
   sourceId?: string;
   videoMediaId?: string;
@@ -20,6 +20,7 @@ export type RemoteTrackSources = Map<string, RemoteTrackSource>;
 
 export type SimulcastQuality = {
   simulcastLayer?: LayerInfo; // Auto has an idx of null
+  // eslint-disable-next-line no-use-before-define
   streamQuality: StreamQuality;
 };
 
@@ -28,7 +29,6 @@ export type StreamQuality = 'Auto' | 'High' | 'Medium' | 'Low';
 export interface Viewer {
   mainMediaStream?: MediaStream;
   mainQualityOptions: SimulcastQuality[];
-  mainStatistics?: OnStats;
   projectToMainStream: (sourceId?: string) => Promise<RemoteTrackSource | void>;
   remoteTrackSources: RemoteTrackSources;
   reprojectFromMainStream: (sourceId?: string) => void;
@@ -45,7 +45,11 @@ export type ViewerAction =
       type: ViewerActionType.ADD_SOURCE;
     }
   | { sourceId?: string; type: ViewerActionType.REMOVE_SOURCE }
-  | { quality: StreamQuality; sourceId?: string; type: ViewerActionType.UPDATE_SOURCE_QUALITY };
+  | {
+      quality: StreamQuality;
+      sourceId?: string;
+      type: ViewerActionType.UPDATE_SOURCE_QUALITY;
+    };
 
 export interface ViewerProps {
   handleError?: (error: string) => void;

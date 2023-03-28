@@ -1,4 +1,10 @@
-import { MediaLayer, MediaTrackInfo, View, ViewProjectSourceMapping } from '@millicast/sdk';
+import {
+  MediaLayer,
+  MediaTrackInfo,
+  View,
+  ViewProjectSourceMapping,
+} from '@millicast/sdk';
+
 import { RemoteTrackSource, SimulcastQuality, StreamQuality } from './types';
 
 export const addRemoteTrack = async (
@@ -9,13 +15,16 @@ export const addRemoteTrack = async (
   const mapping: ViewProjectSourceMapping[] = [];
   const mediaStream = new MediaStream();
 
-  const trackAudio = trackInfo?.find(({ media }) => media == 'audio');
-  const trackVideo = trackInfo?.find(({ media }) => media == 'video');
+  const trackAudio = trackInfo?.find(({ media }) => media === 'audio');
+  const trackVideo = trackInfo?.find(({ media }) => media === 'video');
 
-  let audioMediaId: string | undefined, videoMediaId: string | undefined;
+  let audioMediaId: string | undefined;
+  let videoMediaId: string | undefined;
 
   if (trackAudio) {
-    const audioTransceiver = await viewer.addRemoteTrack('audio', [mediaStream]);
+    const audioTransceiver = await viewer.addRemoteTrack('audio', [
+      mediaStream,
+    ]);
     audioMediaId = audioTransceiver?.mid ?? undefined;
 
     if (audioMediaId) {
@@ -24,7 +33,9 @@ export const addRemoteTrack = async (
   }
 
   if (trackVideo) {
-    const videoTransceiver = await viewer.addRemoteTrack('video', [mediaStream]);
+    const videoTransceiver = await viewer.addRemoteTrack('video', [
+      mediaStream,
+    ]);
     videoMediaId = videoTransceiver?.mid ?? undefined;
 
     if (videoMediaId) {
@@ -42,7 +53,7 @@ export const addRemoteTrack = async (
   };
 };
 
-export const buildQualityOptions = (layers: MediaLayer[] = []) => {
+export const buildQualityOptions = (layers: MediaLayer[] = []): any => {
   const qualities: StreamQuality[] = [];
 
   switch (layers.length) {
@@ -61,7 +72,7 @@ export const buildQualityOptions = (layers: MediaLayer[] = []) => {
 
   const descendingLayers = layers.sort((a, b) => b.bitrate - a.bitrate);
 
-  const qualityOptions: SimulcastQuality[] = descendingLayers.map((layer, idx) => ({
+  const qualityOptions = descendingLayers.map((layer, idx) => ({
     simulcastLayer: {
       bitrate: layer.bitrate,
       encodingId: layer.id,
@@ -75,7 +86,10 @@ export const buildQualityOptions = (layers: MediaLayer[] = []) => {
   return [{ streamQuality: 'Auto' } as SimulcastQuality, ...qualityOptions];
 };
 
-export const unprojectFromStream = async (viewer: View, source: RemoteTrackSource) => {
+export const unprojectFromStream = async (
+  viewer: View,
+  source: RemoteTrackSource
+): Promise<void> => {
   const mediaIds = [];
   if (source.audioMediaId) mediaIds.push(source.audioMediaId);
   if (source.videoMediaId) mediaIds.push(source.videoMediaId);
@@ -89,7 +103,7 @@ export const projectToStream = async (
   source: RemoteTrackSource,
   audioMapping?: ViewProjectSourceMapping,
   videoMapping?: ViewProjectSourceMapping
-) => {
+): Promise<void> => {
   const mapping: ViewProjectSourceMapping[] = [];
 
   if (audioMapping) {

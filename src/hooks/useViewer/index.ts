@@ -47,13 +47,13 @@ const useViewer = ({
   const mainVideoMappingRef = useRef<ViewProjectSourceMapping>();
 
   const [mainMediaStream, setMainMediaStream] = useState<MediaStream>();
-  const [mainQualityOptions, setMainQualityOptions] = useState<
-    SimulcastQuality[]
-  >(buildQualityOptions());
+  const [mainQualityOptions, setMainQualityOptions] = useState<any>(
+    buildQualityOptions()
+  );
 
   const [viewerCount, setViewerCount] = useState<number>(0);
 
-  const handleInternalError = (error: unknown) => {
+  const handleInternalError = (error: unknown): void => {
     if (error instanceof Error) {
       handleError?.(error.message);
     } else {
@@ -61,7 +61,7 @@ const useViewer = ({
     }
   };
 
-  const connect = async () => {
+  const connect = async (): Promise<void> => {
     const { current: viewer } = viewerRef;
 
     if (!viewer) {
@@ -81,19 +81,13 @@ const useViewer = ({
     }
   };
 
-  const handleBroadcastEvent = async (event: BroadcastEvent) => {
+  const handleBroadcastEvent = async (event: BroadcastEvent): Promise<void> => {
     const { current: viewer } = viewerRef;
 
     if (!viewer) {
       return;
     }
 
-    // Due to CAPI platform limitations, only one source can be unnamed (where sourceId is undefined)
-    // By default, the single unnamed source would be treated as the main source
-    // If there are multiple unnamed sources, we can not distinguish which events belong to which sources
-    // Although this is a known unclosed edge case:
-    // In Publisher app, validation is enforced to ensure all sources have a name
-    // In current dolby.io dashboard broadcast app, only one source can be published at a time
     const { sourceId, tracks } = event.data as MediaStreamSource;
 
     switch (event.name) {
@@ -114,7 +108,6 @@ const useViewer = ({
             type: ViewerActionType.ADD_SOURCE,
           });
 
-          // Project to main stream if there are currently no remote tracks and it is the first active event
           if (
             !remoteTrackSourcesRef.current?.size &&
             activeEventCounter === 1
@@ -175,31 +168,14 @@ const useViewer = ({
     }
   };
 
-  const handleConnectionStateChange = (event: string) => {
-    /* const { current: collection } = collectionRef;
-
-        if (event === 'closed') {
-          collection?.stop();
-        }
-
-        if (event === 'connected') {
-          collection?.stop();
-          collection?.start();
-        } */
+  const handleConnectionStateChange = (event: string): void => {
+    // eslint-disable-next-line no-console
+    console.log(event);
   };
-
-  /* const handleStats = (statistics: OnStats) => {
-      const { audio, video } = statistics.input;
-
-      const mainAudio = audio.filter(({ mid }) => mid === mainAudioMappingRef.current?.mediaId) ?? [];
-      const mainVideo = video.filter(({ mid }) => mid === mainVideoMappingRef.current?.mediaId) ?? [];
-
-      setMainStatistics({ ...statistics, input: { audio: mainAudio, video: mainVideo } });
-    }; */
 
   // Get the audio/video media IDs for the main stream from the track event
   // and use them to create the main stream mapping
-  const handleTrack = (event: RTCTrackEvent) => {
+  const handleTrack = (event: RTCTrackEvent): any => {
     const {
       streams: [mediaStream],
       track: { kind },
@@ -240,6 +216,7 @@ const useViewer = ({
           mainVideoMappingRef.current
         );
 
+        // eslint-disable-next-line consistent-return
         return remoteTrackSource;
       } catch (error) {
         handleInternalError(error);
@@ -247,6 +224,7 @@ const useViewer = ({
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const reprojectFromMainStream = async (sourceId?: string) => {
     const { current: viewer } = viewerRef;
 
@@ -265,6 +243,7 @@ const useViewer = ({
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const setSourceQuality = (sourceId?: string, quality?: SimulcastQuality) => {
     const { current: viewer } = viewerRef;
 
@@ -275,8 +254,10 @@ const useViewer = ({
     const { streamQuality, simulcastLayer } = quality ?? {};
 
     if (streamQuality === 'Auto') {
+      // @ts-ignore
       viewer.select({});
     } else {
+      // @ts-ignore
       viewer.select(simulcastLayer ?? {});
     }
 
@@ -287,23 +268,16 @@ const useViewer = ({
     });
   };
 
-  const startViewer = async () => {
+  const startViewer = async (): Promise<void> => {
     if (!viewerRef.current?.isActive()) {
       try {
+        // eslint-disable-next-line no-use-before-define,@typescript-eslint/no-use-before-define
         const viewer = new View(streamName, tokenGenerator);
 
         viewer.on('broadcastEvent', handleBroadcastEvent);
         viewer.on('connectionStateChange', handleConnectionStateChange);
         viewer.on('track', handleTrack);
-        /*
-                        const collection = new WebRTCStats({
-                          getStatsInterval: GET_STATS_INTERVAL,
-                          getStats: () => viewer.webRTCPeer?.getRTCPeer().getStats(),
-                        });
 
-                        collection.on('stats', handleStats);
-
-                        collectionRef.current = collection; */
         viewerRef.current = viewer;
 
         connect();
@@ -313,7 +287,7 @@ const useViewer = ({
     }
   };
 
-  const stopViewer = () => {
+  const stopViewer = (): void => {
     const { current: viewer } = viewerRef;
     // const { current: collection } = collectionRef;
 
@@ -326,7 +300,7 @@ const useViewer = ({
     }
   };
 
-  const tokenGenerator = () =>
+  const tokenGenerator = (): any =>
     Director.getSubscriber({ streamAccountId, streamName, subscriberToken });
 
   return {

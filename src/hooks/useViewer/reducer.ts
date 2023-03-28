@@ -1,12 +1,17 @@
 import { RemoteTrackSources, ViewerAction, ViewerActionType } from './types';
 
-const reducer = (state: RemoteTrackSources, action: ViewerAction): RemoteTrackSources => {
+const reducer = (
+  state: RemoteTrackSources,
+  action: ViewerAction
+): RemoteTrackSources => {
   switch (action.type) {
     case ViewerActionType.ADD_SOURCE: {
       const { sourceId, remoteTrackSource } = action;
 
+      // @ts-ignore
       const newState = new Map([...state, [sourceId, remoteTrackSource]]);
 
+      // @ts-ignore
       return newState;
     }
 
