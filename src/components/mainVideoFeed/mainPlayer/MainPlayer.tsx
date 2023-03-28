@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Player, PlayerEvent } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import cn from 'classname';
+
+import { VideoStateContext } from '@context/videoState/VideoContext';
 
 import IconButton from '@components/iconButton/IconButton';
 import ControlBar from '@components/mainVideoFeed/ControlBar/ControlBar';
@@ -26,8 +28,10 @@ function MainPlayer({
   const playerDiv = useRef(null);
   const containerDiv = useRef(null);
   const [player, setPlayer] = useState(null);
+  const { actions } = useContext(VideoStateContext);
   const [showControls, setShowControls] = useState(false);
   const [hideControlsTimer, setHideControlsTimer] = useState();
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const addSubtitles = (playerInstance, subtitles): void => {
     if (!subtitles || !subtitles.length) {
@@ -161,6 +165,14 @@ function MainPlayer({
     setShowControls(true);
   };
 
+  useEffect(() => {
+    if (containerDiv.current) {
+      containerDiv.current.addEventListener('fullscreenchange', () => {
+        setIsFullScreen(!!document.fullscreenElement);
+      });
+    }
+  }, []);
+
   return (
     <div
       className={cn(styles.playerWrapper, {
@@ -188,6 +200,15 @@ function MainPlayer({
           player={player}
         />
       </div>
+      {!!actions?.length && isFullScreen && (
+        <IconButton
+          className={styles.squeezeback}
+          height={24}
+          imageUrl="/icons/squeezeback-notification.svg"
+          title="Fullscreen"
+          width={24}
+        />
+      )}
       {children}
     </div>
   );

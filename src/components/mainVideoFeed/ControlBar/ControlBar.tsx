@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import cn from 'classname';
+
+import { VideoStateContext } from '@context/videoState/VideoContext';
 
 import IconButton from '@components/iconButton/IconButton';
 import Volume from '@components/volume/Volume';
@@ -17,6 +19,7 @@ function ControlBar({
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [percentage, setPercentage] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const { actions } = useContext(VideoStateContext);
   const setFullScreenMode = useFullScreen();
 
   useEffect(() => {
@@ -94,6 +97,30 @@ function ControlBar({
     setLastUpdate(new Date());
   };
 
+  const getFullScreenIcon = (): string => {
+    if (isFullScreen) {
+      if (actions?.length) {
+        return '/icons/squeezeback-notification.svg';
+      }
+
+      return '/icons/squeezeback.svg';
+    }
+
+    return '/icons/full-screen.svg';
+  };
+
+  const getFullScreenClassname = (): string => {
+    if (isFullScreen) {
+      if (actions?.length) {
+        return styles.squeezeBackNotification;
+      }
+
+      return styles.squeezeBack;
+    }
+
+    return styles.fullscreen;
+  };
+
   return (
     <div className={cn(styles.container, classname)}>
       <div className={styles.barContainer}>
@@ -146,11 +173,9 @@ function ControlBar({
             width={24}
           />
           <IconButton
-            className={isFullScreen ? styles.squeezeBack : styles.fullscreen}
+            className={getFullScreenClassname()}
             height={24}
-            imageUrl={
-              isFullScreen ? '/icons/squeezeback.svg' : '/icons/full-screen.svg'
-            }
+            imageUrl={getFullScreenIcon()}
             title="Fullscreen"
             width={24}
             onClick={handleFullscreenClick}

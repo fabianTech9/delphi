@@ -13,7 +13,8 @@ import 'bitmovin-player/bitmovinplayer-ui.css';
 
 function MainVideoFeed({ playlist }: any): JSX.Element {
   const { setCurrentVideo, currentVideo, config } = useContext(VideoContext);
-  const { setVideoState, setCurrentTime } = useContext(VideoStateContext);
+  const { setVideoState, setCurrentTime, setActions } =
+    useContext(VideoStateContext);
   const [currentActions, setCurrentActions] = useState([]);
   const [currentFeed, setCurrentFeed] = useState();
   const eventState$ = useEventEmitter<any>();
@@ -37,6 +38,7 @@ function MainVideoFeed({ playlist }: any): JSX.Element {
       });
 
       setCurrentActions(newCurrentAction);
+      setActions(newCurrentAction);
     }
   });
 
@@ -68,6 +70,7 @@ function MainVideoFeed({ playlist }: any): JSX.Element {
     <div className={styles.playerWrapper}>
       {currentFeed && currentVideo && (
         <MainPlayer
+          actions={currentActions}
           currentFeed={currentFeed}
           currentVideo={currentVideo}
           eventState$={eventState$}

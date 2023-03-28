@@ -17,6 +17,11 @@ const Main: NextPage = ({ data }: SlugProps): JSX.Element => (
         href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap"
         rel="stylesheet"
       />
+      <link
+        as="image"
+        href="/icons/squeezeback-notification.svg"
+        rel="preload"
+      />
       <script src="https://dl.phenixrts.com/JsSDK/2022.0.latest/min/channels.js" />
     </Head>
     <main>
