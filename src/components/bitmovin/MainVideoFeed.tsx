@@ -4,7 +4,7 @@ import { useEventEmitter } from 'ahooks';
 import { VideoContext } from '@context/video/VideoContext';
 import { VideoStateContext } from '@context/videoState/VideoContext';
 
-import MainPlayer from '@components/mainVideoFeed/mainPlayer/MainPlayer';
+import MainPlayer from '@components/bitmovin/mainPlayer/MainPlayer';
 import PlayerAction from '@components/playerAction/PlayerAction';
 
 import styles from './MainVideoFeed.module.scss';

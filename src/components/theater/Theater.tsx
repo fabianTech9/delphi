@@ -3,8 +3,9 @@ import { Player as LottiePlayer } from '@lottiefiles/react-lottie-player';
 
 import Actions from '@components/actions/Actions';
 import Angles from '@components/angles/Angles';
-import MainVideoFeed from '@components/mainVideoFeed/MainVideoFeed';
-import Player from '@components/player/Player';
+import MainVideoFeed from '@components/bitmovin/MainVideoFeed';
+import Dolby from '@components/dolby/Dolby';
+import Player from '@components/phenix/Player';
 
 import styles from './Theater.module.scss';
 
@@ -13,11 +14,17 @@ function Theater({ program, player }: any): JSX.Element {
 
   const playlist = program.segments;
   const isPhenix = player === 'phenix';
-  const playerElement = isPhenix ? (
-    <Player overlay={program.overlay} playlist={playlist} />
-  ) : (
-    <MainVideoFeed playlist={playlist} />
-  );
+  const isDolby = player === 'dolby';
+  let playerElement;
+
+  if (isDolby) {
+    playerElement = <Dolby overlay={program.overlay} playlist={playlist} />;
+  } else if (isPhenix) {
+    playerElement = <Player overlay={program.overlay} playlist={playlist} />;
+  } else {
+    playerElement = <MainVideoFeed playlist={playlist} />;
+  }
+
   const content = (
     <>
       <div className={styles.videoContainer}>{playerElement}</div>

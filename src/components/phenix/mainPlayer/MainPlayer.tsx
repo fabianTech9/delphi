@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classname';
 
+import Description from '@components/bitmovin/description/Description';
 import IconButton from '@components/iconButton/IconButton';
-import Description from '@components/mainVideoFeed/description/Description';
-import ControlBar from '@components/player/ControlBar/ControlBar';
+import ControlBar from '@components/phenix/ControlBar/ControlBar';
 
 import styles from './MainPlayer.module.scss';
 

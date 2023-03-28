@@ -1,0 +1,124 @@
+import React, { useEffect, useRef, useState } from 'react';
+import cn from 'classname';
+
+import Description from '@components/bitmovin/description/Description';
+import IconButton from '@components/iconButton/IconButton';
+import ControlBar from '@components/phenix/ControlBar/ControlBar';
+
+import useViewer from '@hooks/useViewer';
+
+import styles from './MainPlayer.module.scss';
+
+import 'bitmovin-player/bitmovinplayer-ui.css';
+
+function MainPlayer({ currentVideo, currentFeed, overlay }: any): JSX.Element {
+  const playerDiv = useRef(null);
+  const containerDiv = useRef(null);
+
+  const [showControls, setShowControls] = useState(false);
+  const [hideControlsTimer, setHideControlsTimer] = useState();
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const streamName = 'testDelphi';
+  const streamAccountId = 'cY6v7F';
+  const { mainMediaStream, startViewer, stopViewer } = useViewer({
+    streamAccountId,
+    streamName,
+  });
+
+  useEffect(() => {
+    if (playerDiv.current) {
+      playerDiv.current.srcObject = mainMediaStream;
+    }
+  }, [playerDiv, mainMediaStream]);
+
+  useEffect(() => {
+    startViewer();
+
+    return () => {
+      stopViewer();
+    };
+  }, []);
+
+  const handleMouseAction = (): void => {
+    if (hideControlsTimer) {
+      clearTimeout(hideControlsTimer);
+    }
+
+    const timer = setTimeout(() => {
+      setShowControls(false);
+    }, 2000);
+
+    // @ts-ignore
+    setHideControlsTimer(timer);
+    setShowControls(true);
+  };
+
+  useEffect(() => {
+    if (containerDiv.current) {
+      containerDiv.current.addEventListener('fullscreenchange', () => {
+        setIsFullScreen(!!document.fullscreenElement);
+      });
+    }
+  }, [playerDiv.current]);
+
+  const handlePause = (): void => {
+    setIsPaused(true);
+  };
+
+  const handlePlay = (): void => {
+    setIsPaused(false);
+  };
+
+  return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className={cn(styles.playerWrapper, {
+        [styles.showControls]: showControls,
+        [styles.canCast]: currentVideo.isCastingEnabled,
+      })}
+      ref={containerDiv}
+      onMouseDown={handleMouseAction}
+      onMouseMove={handleMouseAction}
+    >
+      <video
+        autoPlay
+        playsInline
+        className={styles.player}
+        id="myVideoId"
+        ref={playerDiv}
+        onPause={handlePause}
+        onPlay={handlePlay}
+      />
+
+      <img
+        alt="overlay"
+        className={cn(styles.overlay, { [styles.isPaused]: isPaused })}
+        src={overlay}
+      />
+
+      <div
+        className={cn(styles.controlBar, {
+          [styles.isFullScreen]: isFullScreen,
+        })}
+      >
+        <IconButton
+          className={styles.back}
+          height={50}
+          imageUrl="/icons/arrow.svg"
+          title="back"
+          width={50}
+        />
+        <Description video={currentVideo} />
+        <ControlBar
+          classname={styles.controls}
+          containerRef={containerDiv.current}
+          currentFeed={currentFeed}
+          player={playerDiv.current}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default MainPlayer;

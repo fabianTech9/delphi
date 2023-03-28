@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import MainPlayer from '@components/player/mainPlayer/MainPlayer';
+import MainPlayer from '@components/phenix/mainPlayer/MainPlayer';
 
 function Player({ playlist, overlay }: any): JSX.Element {
   const [currentFeed, setCurrentFeed] = useState();

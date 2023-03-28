@@ -5,9 +5,9 @@ import cn from 'classname';
 
 import { VideoStateContext } from '@context/videoState/VideoContext';
 
+import ControlBar from '@components/bitmovin/ControlBar/ControlBar';
+import Description from '@components/bitmovin/description/Description';
 import IconButton from '@components/iconButton/IconButton';
-import ControlBar from '@components/mainVideoFeed/ControlBar/ControlBar';
-import Description from '@components/mainVideoFeed/description/Description';
 
 import useBitmovinConfig from '@hooks/useBitmovinConfig/useBitmovinConfig';
 
